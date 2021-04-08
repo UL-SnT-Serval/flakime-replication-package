@@ -2,8 +2,8 @@
 
 project=$1
 bug_id=$2
-junit=$3
-flake_rate=$4
+flake_rate=$3
+flake_strategy=$4
 
 classpath="${ARJADIR}/lib/*:${ARJADIR}/bin"
 results="${WORKDIR}/results/${project}/${bug_id}/${flake_rate}"
@@ -19,10 +19,15 @@ cp -rf ${WORKDIR}/defects4j/${project}/${bug_id} ${project_dir}
 #compile code with flakime
 #note that that the project needs to have the flakime plugin in its pom.xml
 pushd ${project_dir}
-mvn clean verify -DskipTests -Dfkakime.flakeRate=${flake_rate}
+mvn clean verify -DskipTests -Dflakime.flakeRate=${flake_rate} -Dflakime.strategy=${flake_strategy}
+mvn dependency:copy-dependencies
 popd
 
 pushd ${results}
+
+str=`echo ${project_dir}/target/dependency/*`
+DEPENDENCIES=${str// /:}
+
 
 #run analysis with Arja
 for i in `seq 1 10`;
@@ -31,7 +36,7 @@ do
 		-DsrcJavaDir ${project_dir}/src/ \
 		-DbinJavaDir ${project_dir}/target/classes/ \
 		-DbinTestDir ${project_dir}/target/test-classes/ \
-		-Ddependences ${M2_REPOSITORY}/junit/junit/${junit}/junit-${junit}.jar:${M2_REPOSITORY}/org/easymock/easymock/2.5.2/easymock-2.5.2.jar \
+		-Ddependences ${DEPENDENCIES}
 		-Dseed 0"
 
 	echo ${cmd}

@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/bin/bash -l
+
+#SBATCH -n 4
+#SBATCH -N 1
+#SBATCH -c 4
+#SBATCH --time=0-10:00:00
+#SBATCH -J arja
+
+module purge
 
 export WORKDIR=/mnt/d/workspaces/flakime
 export ARJADIR=/mnt/d/projects/arja
@@ -6,4 +14,4 @@ export ARJADIR=/mnt/d/projects/arja
 export MAVEN_OPTS=-Xss10M
 export M2_REPOSITORY=$HOME/.m2/repository
 
-./arja.sh lang 20 4.7 0.5
+./arja.sh $1 $2 $3 $4
