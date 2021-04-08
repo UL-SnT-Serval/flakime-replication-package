@@ -6,7 +6,7 @@ flake_rate=$3
 flake_strategy=$4
 
 classpath="${ARJADIR}/lib/*:${ARJADIR}/bin"
-results="${WORKDIR}/results/${project}/${bug_id}/${flake_rate}"
+results="${WORKDIR}/results/${project}/${bug_id}/${flake_rate}/${flake_strategy}"
 project_dir="${results}/project"
 
 #setup working space
@@ -40,7 +40,7 @@ do
 		-Dseed 0"
 
 	echo ${cmd}
-	$cmd > "${project}_${bug_id}_${flake_rate}_${i}.log"
+	$cmd > "${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}.log"
 done
 
 #clean up working space
