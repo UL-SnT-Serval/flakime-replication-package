@@ -36,7 +36,8 @@ do
 		-DsrcJavaDir ${project_dir}/src/ \
 		-DbinJavaDir ${project_dir}/target/classes/ \
 		-DbinTestDir ${project_dir}/target/test-classes/ \
-		-Ddependences ${DEPENDENCIES}
+		-Ddependences ${DEPENDENCIES} \
+		-DpatchOutputRoot patch_${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i} \
 		-Dseed 0"
 
 	echo ${cmd}
