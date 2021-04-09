@@ -4,6 +4,7 @@ project=$1
 bug_id=$2
 flake_rate=$3
 flake_strategy=$4
+repetition=${5:-10}
 
 classpath="${ARJADIR}/lib/*:${ARJADIR}/bin"
 results="${WORKDIR}/results/${project}/${bug_id}/${flake_rate}/${flake_strategy}"
@@ -30,15 +31,14 @@ DEPENDENCIES=${str// /:}
 
 
 #run analysis with Arja
-for i in `seq 1 10`;
+for i in `seq 1 ${repetition}`;
 do
 	cmd="java -cp ${classpath} us.msu.cse.repair.Main Arja \
 		-DsrcJavaDir ${project_dir}/src/ \
 		-DbinJavaDir ${project_dir}/target/classes/ \
 		-DbinTestDir ${project_dir}/target/test-classes/ \
 		-Ddependences ${DEPENDENCIES} \
-		-DpatchOutputRoot patch_${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i} \
-		-Dseed 0"
+		-DpatchOutputRoot patch_${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}"
 
 	echo ${cmd}
 	$cmd > "${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}.log"

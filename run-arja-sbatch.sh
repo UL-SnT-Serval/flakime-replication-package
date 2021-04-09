@@ -3,7 +3,6 @@
 #SBATCH -n 4
 #SBATCH -N 1
 #SBATCH -c 4
-#SBATCH --time=0-10:00:00
 #SBATCH -J arja
 
 module purge
@@ -14,4 +13,4 @@ export ARJADIR=/mnt/d/projects/arja
 export MAVEN_OPTS=-Xss10M
 export M2_REPOSITORY=$HOME/.m2/repository
 
-./arja.sh $1 $2 $3 $4
+./arja.sh $1 $2 $3 $4 $5
