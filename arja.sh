@@ -17,31 +17,39 @@ rm -rf ${results}/*
 cp -rf ${ARJADIR}/external ${results}/external
 cp -rf ${WORKDIR}/defects4j/${project}/${bug_id} ${project_dir}
 
-#compile code with flakime
-#note that that the project needs to have the flakime plugin in its pom.xml
-pushd ${project_dir}
-mvn clean verify -DskipTests -Dflakime.flakeRate=${flake_rate} -Dflakime.strategy=${flake_strategy}
-mvn dependency:copy-dependencies
-popd
 
-pushd ${results}
-
-str=`echo ${project_dir}/target/dependency/*`
-DEPENDENCIES=${str// /:}
-
-
-#run analysis with Arja
 for i in `seq 1 ${repetition}`;
 do
+	key="${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}"
+	mkdir "${results}/flakes_${key}"
+	
+	#compile code with flakime
+	#note that that the project needs to have the flakime plugin in its pom.xml
+	pushd ${project_dir}
+	mvn clean verify \
+		-DskipTests \
+		-Dflakime.flakeRate=${flake_rate} \
+		-Dflakime.strategy=${flake_strategy} \
+		-Dflakime.outputDirectory="${results}/flakes_${key}"
+		
+	mvn dependency:copy-dependencies
+	popd
+
+	pushd ${results}
+
+	str=`echo ${project_dir}/target/dependency/*`
+	DEPENDENCIES=${str// /:}
+
+	#run analysis with Arja
 	cmd="java -cp ${classpath} us.msu.cse.repair.Main Arja \
 		-DsrcJavaDir ${project_dir}/src/ \
 		-DbinJavaDir ${project_dir}/target/classes/ \
 		-DbinTestDir ${project_dir}/target/test-classes/ \
 		-Ddependences ${DEPENDENCIES} \
-		-DpatchOutputRoot patch_${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}"
+		-DpatchOutputRoot patch_${key}"
 
 	echo ${cmd}
-	$cmd > "${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}.log"
+	$cmd > "${key}.log"
 done
 
 #clean up working space
