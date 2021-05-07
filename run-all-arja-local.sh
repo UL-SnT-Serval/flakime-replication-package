@@ -14,8 +14,6 @@ run()
 	done
 }
 
-run jsoup 1
-
 run lang 20 
 run lang 22
 run lang 39
