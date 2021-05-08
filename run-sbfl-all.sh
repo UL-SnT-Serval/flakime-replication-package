@@ -15,7 +15,7 @@ run()
 	do
     	for FLAKE_STRATEGY in vocabulary
 		do
-            if [ "$mode" == 'sbatch' ]
+            if [ "$mode" == "sbatch" ]
             then
                 export JAVA_HOME=$HOME/bin/jdk1.8.0_291
                 export PATH=$HOME/bin/jdk1.8.0_291/bin:$PATH
