@@ -17,6 +17,10 @@ run()
 		do
             if [ $mode == 'sbatch' ]
             then
+                export JAVA_HOME=$HOME/bin/jdk1.8.0_291
+                export PATH=$HOME/bin/jdk1.8.0_291/bin:$PATH
+                export PATH=$HOME/bin/apache-maven-3.6.1/bin:$PATH
+
                 sbatch --output=sbfl-${PROJECT}-${BUG}-${FLAKE_RATE}-${FLAKE_STRATEGY}.out \
                 --time=0-2:00:00
                 ./run-sbfl.sh ${PROJECT} ${BUG} ${FLAKE_RATE} ${FLAKE_STRATEGY} 
