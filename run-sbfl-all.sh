@@ -34,8 +34,8 @@ run()
 #run lang 22
 #run lang 39
 
-run math 5
-#run math 22
+#run math 5
+run math 22
 #run math 39
 #run math 50
 #run math 53
