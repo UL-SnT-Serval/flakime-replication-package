@@ -1,7 +1,6 @@
 #!/bin/bash -l
 
 export WORKDIR=$PWD
-export M2_REPOSITORY=$HOME/.m2/repository
 export MAVEN_OPTS=-Xss10M
 
 mode=$1
@@ -11,7 +10,7 @@ run()
 	PROJECT=$1
 	BUG=$2
 
-	for FLAKE_RATE in 0.00 #0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10
+	for FLAKE_RATE in 0.00 0.01 0.02 0.03 0.04 0.05 0.06 0.07 0.08 0.09 0.10
 	do
     	for FLAKE_STRATEGY in vocabulary
 		do

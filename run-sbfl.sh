@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#SBATCH -n 2
+#SBATCH -n 1
 #SBATCH -N 1
 #SBATCH -c 2
 #SBATCH -J sbfl
