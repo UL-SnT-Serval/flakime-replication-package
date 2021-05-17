@@ -59,7 +59,7 @@ done
 
 #clean up working space
 rm -rf ${results}/external
-#rm -rf ${project_dir}
+rm -rf ${project_dir}
 rm ${results}/FUN_NSGAII
 
 popd
