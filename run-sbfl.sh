@@ -29,6 +29,7 @@ do
 	pushd ${project_dir}
 	mvn clean test \
 		-Dflakime.flakeRate=${flake_rate} \
+		-Dflakime.disableReport=true \
 		-Dflakime.strategy=${flake_strategy} \
         -P sbfl
 	popd

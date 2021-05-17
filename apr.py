@@ -78,7 +78,7 @@ def draw_arja():
     data_vocabulary = data.loc[data['Strategy'] == 'vocabulary']
     utils.lineplot(data_vocabulary, 'arja_all_valid_patches', 'Flake Rate', 'Valid Patches', 'Bug ID', y_label='Number of valid patches', x_label='Flaky Failure Rate', x_lim=[0,0.5])
     utils.lineplot(data_vocabulary, 'arja_all_total_tests', 'Flake Rate', 'Total Tests', 'Bug ID', y_label='Number of tests executed', x_label='Flaky Failure Rate', x_lim=[0,0.5])
-    utils.lineplot(data_vocabulary, 'arja_all_failing_tests', 'Flake Rate', 'Failed Tests', 'Bug ID', y_label='Number of tests executed', x_label='Flaky Failure Rate', x_lim=[0,0.5])
+    utils.lineplot(data_vocabulary, 'arja_all_failing_tests', 'Flake Rate', 'Negative Tests', 'Bug ID', y_label='Number of tests executed', x_label='Flaky Failure Rate', x_lim=[0,0.5])
     utils.lineplot(data_vocabulary, 'arja_all_passing_tests', 'Flake Rate', 'Positive Tests', 'Bug ID', y_label='Number of tests executed', x_label='Flaky Failure Rate', x_lim=[0,0.5])
 
     data_0_05 = data.loc[data['Flake Rate'] == 0.05]

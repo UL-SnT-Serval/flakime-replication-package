@@ -26,7 +26,6 @@ cp -rf ${WORKDIR}/defects4j/${project}/${bug_id} ${project_dir}
 for i in `seq 1 ${repetition}`;
 do
 	key="${project}_${bug_id}_${flake_rate}_${flake_strategy}_${i}"
-	mkdir "${results}/flakes_${key}"
 	
 	#compile code with flakime
 	#note that that the project needs to have the flakime plugin in its pom.xml
