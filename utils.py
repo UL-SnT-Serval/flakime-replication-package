@@ -5,6 +5,8 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import sys
+import os
+import re
 
 from matplotlib import colors
 
@@ -15,12 +17,39 @@ FIGURE_FOLDER = 'figures/'
 EXTENSION = '.pdf'
 
 
+def list_dirs(path):
+    return [(os.path.join(os.path.join(path,dI)), dI) for dI in os.listdir(path) if os.path.isdir(os.path.join(path,dI))]
+
+
+def find_dirs(path, regex):
+    return [f for f in list_dirs(path) if re.match(regex, f[1])]
+
+
+def list_files(path):
+    return [(os.path.join(os.path.join(path,dI)), dI) for dI in os.listdir(path) if os.path.isfile(os.path.join(path,dI))]
+
+
+def find_files(path, regex):
+    return [f[0] for f in list_files(path) if re.match(regex, f[1])]
+
+
+def get_folder(path, project, bug_id, flake_rate, strategy):
+    return os.path.normpath(re.sub(r'\\$|/$', '', path) + '/' + project + '/' + bug_id + '/' + flake_rate + '/' + strategy)
+
+def walk_folders(path):
+    for project_dir, project in list_dirs(path):
+        for bug_id_dir, bug_id in list_dirs(project_dir):
+            for flake_rate_dir, flake_rate in list_dirs(bug_id_dir):
+                for strategy_dir, strategy in list_dirs(flake_rate_dir):
+                    yield [strategy_dir, project, bug_id, flake_rate, strategy]
+
+
 def color_palette(data, hue):
     n_colors = len(data[hue].unique())
     return sns.color_palette("cubehelix", n_colors=n_colors)
 
 
-def lineplot(data, name, x, y, hue, y_label='', x_label='', x_lim=None, y_lim=None, fig_size=(6,4), legend_pos='best', style=None):
+def lineplot(data, name, x, y, hue=None, y_label='', x_label='', x_lim=None, y_lim=None, fig_size=(6,4), legend_pos='best', style=None):
     fig = plt.figure(figsize=fig_size)
     sns.set(style="white", color_codes=True, font_scale=1.5)
 
@@ -48,7 +77,7 @@ def lineplot(data, name, x, y, hue, y_label='', x_label='', x_lim=None, y_lim=No
     plt.close('all')
 
 
-def boxplot(data, name, x, y, y_label, hue="project", x_label='', x_lim=None, y_lim=None, fig_size=(6,4), legend_pos='best', log_scale=False, sparse_tick=False):
+def boxplot(data, name, x, y, hue=None, y_label='', x_label='', x_lim=None, y_lim=None, fig_size=(6,4), legend_pos='best', log_scale=False, sparse_tick=False):
     fig = plt.figure(figsize=fig_size)
     sns.set(style="ticks", color_codes=True, font_scale=1.5)
 

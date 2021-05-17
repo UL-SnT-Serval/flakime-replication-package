@@ -12,7 +12,7 @@ flake_strategy=$4
 repetition=${5:-10}
 
 classpath="${ARJADIR}/lib/*:${ARJADIR}/bin"
-results="${WORKDIR}/results/${project}/${bug_id}/${flake_rate}/${flake_strategy}"
+results="${WORKDIR}/data/apr/arja/${project}/${bug_id}/${flake_rate}/${flake_strategy}"
 project_dir="${results}/project"
 
 #setup working space
@@ -34,8 +34,8 @@ do
 	mvn clean verify \
 		-DskipTests \
 		-Dflakime.flakeRate=${flake_rate} \
-		-Dflakime.strategy=${flake_strategy} \
-		-Dflakime.outputDirectory="${results}/flakes_${key}"
+		-Dflakime.disableReport=true \
+		-P arja-${flake_strategy}
 		
 	mvn dependency:copy-dependencies
 	popd
@@ -59,7 +59,7 @@ done
 
 #clean up working space
 rm -rf ${results}/external
-rm -rf ${project_dir}
+#rm -rf ${project_dir}
 rm ${results}/FUN_NSGAII
 
 popd
