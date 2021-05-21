@@ -76,27 +76,34 @@ def load_sbfl_file(path, file_name, project, bug_id, flake_rate, strategy, ranki
 
 
 def load_sbfl(path, ranking, threshold):
-    sbfl_data = []
-    pattern = re.compile(ranking + '\-[0-9]+\.csv', re.IGNORECASE)
+    if not utils.is_cached('sbfl'):
+        sbfl_data = []
+        pattern = re.compile(ranking + '\-[0-9]+\.csv', re.IGNORECASE)
 
-    for folder, project, bug_id, flake_rate, strategy in utils.walk_folders(path):
-        files = utils.find_files(folder, pattern)
-        project_id = '{}-{}'.format(project.capitalize(), bug_id)
-        
-        for file_name in files:
-            data = load_sbfl_file(path, file_name, project, bug_id, flake_rate, strategy, ranking)
-            [accuracy, precision, recall] = compute_scores(data, threshold)
-            sbfl_data.append({'Bug ID': project_id, 'flake_rate': flake_rate, 'strategy': strategy, 'accuracy': accuracy, 'precision': precision, 'recall': recall})
+        for folder, project, bug_id, flake_rate, strategy in utils.walk_folders(path):
+            files = utils.find_files(folder, pattern)
+            project_id = '{}-{}'.format(project.capitalize(), bug_id)
+            
+            for file_name in files:
+                data = load_sbfl_file(path, file_name, project, bug_id, flake_rate, strategy, ranking)
+                [accuracy, precision, recall] = compute_scores(data, threshold)
+                sbfl_data.append({'Bug ID': project_id, 'flake_rate': float(flake_rate), 'strategy': strategy, 'accuracy': accuracy, 'precision': precision, 'recall': recall})
 
-    return pandas.DataFrame(sbfl_data)
+        utils.store_file_in_cache(pandas.DataFrame(sbfl_data), 'sbfl')
+
+    return utils.load_cache('sbfl')
 
 
 def draw_sbfl(ranking, threshold):
     results = load_sbfl('data/sbfl', ranking, threshold)
     
-    utils.lineplot(results, name='sbfl_accuracy',  x='flake_rate', y='accuracy', hue='Bug ID', y_label='Accuracy', x_label='Flakiness failure probability', fig_size=(6,5), legend_pos=None)
-    utils.lineplot(results, name='sbfl_precision',  x='flake_rate', y='precision', hue='Bug ID', y_label='Precision', x_label='Flakiness failure probability', fig_size=(6,5), legend_pos=None)
-    utils.lineplot(results, name='sbfl_recall',  x='flake_rate', y='recall', hue='Bug ID', y_label='Recall', x_label='Flakiness failure probability', fig_size=(6,5))
+    data =results.groupby(['Bug ID', 'flake_rate', 'strategy'], as_index=False).mean()
+    data = data.loc[data['flake_rate'].isin([0.00,0.2])]
+    print(data)
+
+    utils.lineplot(results, name='sbfl_accuracy',  x='flake_rate', y='accuracy', hue='Bug ID', y_label='Accuracy', x_label='Nominal Flake Rate', fig_size=(6,5), legend_pos=None)
+    utils.lineplot(results, name='sbfl_precision',  x='flake_rate', y='precision', hue='Bug ID', y_label='Precision', x_label='Nominal Flake Rate', fig_size=(6,5), legend_pos=None)
+    utils.lineplot(results, name='sbfl_recall',  x='flake_rate', y='recall', hue='Bug ID', y_label='Recall', x_label='Nominal Flake Rate', fig_size=(6,5))
 
 if __name__ == "__main__":
     ranking = 'ochiai'

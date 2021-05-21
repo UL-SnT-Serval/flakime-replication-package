@@ -6,12 +6,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 import os
+import pathlib
 import re
+import pandas
 
 from matplotlib import colors
 
-CACHE = '{}_cache.csv'
-HDF5_CACHE = '{}_cache.h5'
+HDF5_CACHE = '__cache__/{}.h5'
 
 FIGURE_FOLDER = 'figures/'
 EXTENSION = '.pdf'
@@ -44,8 +45,23 @@ def walk_folders(path):
                     yield [strategy_dir, project, bug_id, flake_rate, strategy]
 
 
+def store_file_in_cache(df, name):
+    cache_dir = pathlib.Path(HDF5_CACHE.format('', '')).parent.resolve()
+    if not os.path.exists(cache_dir):
+        os.makedirs(cache_dir)
+
+    df.to_hdf(HDF5_CACHE.format(name), key='data', mode='w')
+
+
+def load_cache(name):
+    return pandas.read_hdf(HDF5_CACHE.format(name), 'data')
+
+
+def is_cached(name):
+    return os.path.isfile(HDF5_CACHE.format(name))
+
 def color_palette(data, hue):
-    n_colors = len(data[hue].unique())
+    n_colors = len(data[hue].unique()) if hue else 1
     return sns.color_palette("cubehelix", n_colors=n_colors)
 
 
@@ -56,7 +72,6 @@ def lineplot(data, name, x, y, hue=None, y_label='', x_label='', x_lim=None, y_l
     palette = color_palette(data, hue)
 
     g = sns.lineplot(x=x, y=y, hue=hue, data=data, palette=palette, legend="full", style=style)
-
     fig.tight_layout()
 
     if not legend_pos:
@@ -72,6 +87,30 @@ def lineplot(data, name, x, y, hue=None, y_label='', x_label='', x_lim=None, y_l
 
     if x_lim != None and len(x_lim) == 2:
         plt.xlim(x_lim)
+
+    plt.savefig(FIGURE_FOLDER + name + EXTENSION, dpi=300, bbox_inches='tight')
+    plt.close('all')
+
+
+def distribution(data, name, countable, hue=None, y_label='', x_label='', x_lim=None, y_lim=None, binwidth=None, fig_size=(6,4)):
+    fig = plt.figure(figsize=fig_size)
+    sns.set(style="white", color_codes=True, font_scale=1.5)
+
+    palette = color_palette(data, hue)
+
+    sns.histplot(data=data, x=countable, hue=hue, palette=palette, binwidth=binwidth)
+    fig.tight_layout()
+
+    plt.ylabel(y_label, fontsize=15)
+    plt.xlabel(x_label, fontsize=15)
+
+
+    if y_lim != None and len(y_lim) == 2:
+        plt.ylim(y_lim)
+
+    if x_lim != None and len(x_lim) == 2:
+        plt.xlim(x_lim)
+
 
     plt.savefig(FIGURE_FOLDER + name + EXTENSION, dpi=300, bbox_inches='tight')
     plt.close('all')
@@ -99,7 +138,7 @@ def boxplot(data, name, x, y, hue=None, y_label='', x_label='', x_lim=None, y_li
             g.legend_.remove()
         else:
             handles, labels = g.get_legend_handles_labels()
-            plt.legend(loc=legend_pos, prop={'size': 15}, handles=handles[0:], labels=labels[0:])
+            plt.legend(loc=legend_pos, prop={'size': 15})
 
     if y_lim != None and len(y_lim) == 2:
         plt.ylim(y_lim)
