@@ -2,6 +2,6 @@ __pycache__/
 .vscode/
 __cache__/
 
-/defects4j
+# /defects4j
 /data/
 /arja/
