@@ -88,7 +88,7 @@ def print_arja_statistics(data):
     print('ARJA statistics: loss of valid patches')
     print("--------------------------------------------------")
     data_vocabulary = data.loc[data['Strategy'] == 'non-targeted']
-    compare_loss = data_vocabulary.loc[data_vocabulary['Flake Rate'].isin([0.0, 0.05])].groupby(['Bug ID', 'Flake Rate'])['Valid Patches'].mean().unstack()
+    compare_loss = data_vocabulary.loc[data_vocabulary['Flake Rate'].isin([0.0, 0.05])].groupby(['Bug ID', 'Flake Rate'])['Valid Patches'].sum().unstack()
     compare_loss['loss [%]'] = compare_loss.apply(lambda row: (row[0.05] - row[0.00]) / row[0.00] * 100, axis=1)
     print(compare_loss)
 
