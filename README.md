@@ -45,13 +45,14 @@ This experiment helps to investigate the effect of flakiness on the mutation sco
 #### Experiment
 The experiment is describe bellow :
 
-0: *Foreach* Project **p** in [*math*,*time*,*chart*,*lang*]:
-1: &ensp;&ensp;&ensp;*For* **nfr** from 0 to 0,5:
-2: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;*For* 10 repetitions:
-3: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;*Inject_flakiness(**p**,**nfr**)*
-4: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;*run_Pitest()*   
-5: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;*record_mutation_score*    
-
+```
+0: Foreach Project p in [math,time,chart,lang]:
+1:      For nfr from 0 to 0,5:
+2:          For 10 repetitions:
+3:              Inject_flakiness(p,nfr)
+4:              run_Pitest()
+5:              record_mutation_score
+```
 The script `run-pit.sh` corresponds to the last loop(line 2 to 5) and takes as arguments : `$ ./run-pit.sh {project_location} {nominal_flakeRate}`. The script `run-pit-all.sh` corresponds to the first two loops and does not takes arguments.
 
 Thus for running the full experiment (*approx*. 25 hours) use `run-pit-all.sh`. 
@@ -63,9 +64,16 @@ The plot of results are done using `pit_plot.py` script. The script reads its co
 
 To plot the results simply run `python pit_plot.py`. The figures can be found in `figures\`
 ### Probabilistic program repair (ARJA)
-TODO
+This experiment helps to investigate the effect of flakiness on the number of generated valid patches by a state of the art probabilistic program repair approach.
 #### Experiment
-TODO
+```
+0: Foreach Project p in [arja_project_list]:
+1:      For nfr from 0 to 0,1:
+2:          For 10 repetitions:
+3:              Inject_flakiness(p,nfr)
+4:              run_arja()
+5:              record_valid_patches
+```
 #### Analysis & plot
 TODO
 ### Deterministic program repair (PR-APR)
