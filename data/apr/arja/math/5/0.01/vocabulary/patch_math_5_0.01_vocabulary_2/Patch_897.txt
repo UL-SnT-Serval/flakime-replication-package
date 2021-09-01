@@ -1,0 +1,20 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 1228
+Faulty:
+return "(" + real + ", "+ imaginary+ ")";
+Seed:
+return null;
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+3 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java 533
+Faulty:
+return sum;
+Seed:
+checkVectorDimensions(v.getDimension());
+**************************************************
+Evaluations: 1051
+EstimatedTime: 656012

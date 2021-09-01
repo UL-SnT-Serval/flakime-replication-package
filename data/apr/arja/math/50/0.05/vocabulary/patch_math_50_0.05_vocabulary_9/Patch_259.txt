@@ -1,0 +1,40 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1509
+Faulty:
+break;
+Seed:
+if (FastMath.floor(unscaled) / 2.0 == FastMath.floor(Math.floor(unscaled) / 2.0)) {
+  unscaled=FastMath.floor(unscaled);
+}
+ else {
+  unscaled=FastMath.ceil(unscaled);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1487
+Faulty:
+unscaled=FastMath.ceil(unscaled);
+Seed:
+unscaled=FastMath.ceil(FastMath.nextAfter(unscaled,Double.POSITIVE_INFINITY));
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+    return x1;
+case LEFT_SIDE:
+  return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+Evaluations: 287
+EstimatedTime: 429967

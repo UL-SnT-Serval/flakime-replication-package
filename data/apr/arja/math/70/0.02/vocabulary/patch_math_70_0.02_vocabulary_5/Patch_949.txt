@@ -1,0 +1,22 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 66
+Faulty:
+return solve(f,min,max);
+Seed:
+this.resultComputed=true;
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 344
+Faulty:
+double threshold=normProduct * 0.9999;
+Seed:
+if (normProduct == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+**************************************************
+Evaluations: 961
+EstimatedTime: 1295599

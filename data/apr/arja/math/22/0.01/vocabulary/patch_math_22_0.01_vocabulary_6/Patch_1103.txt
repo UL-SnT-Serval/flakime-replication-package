@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 134
+Faulty:
+final double lognxm=FastMath.log(numeratorDegreesOfFreedom * x + denominatorDegreesOfFreedom);
+Seed:
+numericalVarianceIsCalculated=true;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/linear/SchurTransformer.java 121
+Faulty:
+cachedT=MatrixUtils.createRealMatrix(matrixT);
+Seed:
+cachedPt=getP().transpose();
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 275
+Faulty:
+return true;
+Seed:
+return false;
+**************************************************
+Evaluations: 1325
+EstimatedTime: 959969

@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 170
+Faulty:
+double[] params=new double[3];
+Seed:
+Arrays.sort(points,createWeightedObservedPointComparator());
+**************************************************
+Evaluations: 502
+EstimatedTime: 344961

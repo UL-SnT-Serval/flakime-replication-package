@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/linear/MatrixUtils.java 303
+Faulty:
+for (int i=0; i < nCols; ++i) {
+  m.setEntry(0,i,rowData[i]);
+}
+Seed:
+if (nCols == 0) {
+  throw new NoDataException(LocalizedFormats.AT_LEAST_ONE_COLUMN);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+Evaluations: 1010
+EstimatedTime: 621213

@@ -1,0 +1,40 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1523
+Faulty:
+double y=x * 0.333333333333333 - 0.5;
+Seed:
+if (x <= -1.0 || x >= 1.0) {
+  double hiPrec[]=new double[2];
+  exp(x,0.0,hiPrec);
+  if (x > 0.0) {
+    return -1.0 + hiPrec[0] + hiPrec[1];
+  }
+ else {
+    final double ra=-1.0 + hiPrec[0];
+    double rb=-(ra + 1.0 - hiPrec[0]);
+    rb+=hiPrec[1];
+    return ra + rb;
+  }
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1524
+Faulty:
+y=y * x + 1.0;
+Seed:
+if (y >= TWO_POWER_52 || y <= -TWO_POWER_52) {
+  return pow(-x,y);
+}
+**************************************************
+Evaluations: 312
+EstimatedTime: 810065

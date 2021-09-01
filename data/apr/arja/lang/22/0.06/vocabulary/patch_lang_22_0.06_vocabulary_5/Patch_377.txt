@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.06/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 594
+Faulty:
+int k=0;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.06/vocabulary/project/src/main/java/org/apache/commons/lang3/exception/ExceptionUtils.java 477
+Faulty:
+String trace[]=getRootCauseStackTrace(throwable);
+Seed:
+stream.flush();
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.06/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 371
+EstimatedTime: 427826

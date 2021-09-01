@@ -1,0 +1,20 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 151
+Faulty:
+if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate");
+}
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: too large to negate");
+}
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 359
+EstimatedTime: 425049

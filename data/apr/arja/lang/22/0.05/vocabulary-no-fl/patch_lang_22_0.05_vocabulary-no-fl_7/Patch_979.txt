@@ -1,0 +1,18 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new NumberFormatException("A blank string is not a valid number");
+**************************************************
+Evaluations: 1003
+EstimatedTime: 1395571

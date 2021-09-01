@@ -1,0 +1,31 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 377
+Faulty:
+final double c1=1 / (8 * lambda);
+Seed:
+if (rand == null) {
+  rand=new JDKRandomGenerator();
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 373
+Faulty:
+final double a2=(twolpd / delta) * Math.exp(-delta * (1 + delta) / twolpd);
+Seed:
+secRand=new SecureRandom();
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 364
+Faulty:
+final double lambda=Math.floor(mean);
+Seed:
+if (rand == null) {
+  rand=new JDKRandomGenerator();
+  rand.setSeed(System.currentTimeMillis());
+}
+**************************************************
+Evaluations: 1316
+EstimatedTime: 3652076

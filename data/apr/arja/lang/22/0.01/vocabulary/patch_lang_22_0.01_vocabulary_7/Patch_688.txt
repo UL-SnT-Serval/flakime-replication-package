@@ -1,0 +1,29 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 482
+Faulty:
+return Fraction.getFraction(numerator / gcd,denominator / gcd);
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return 0;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/concurrent/LazyInitializer.java 100
+Faulty:
+object=result=initialize();
+Seed:
+if (result == null) {
+synchronized (this) {
+    result=object;
+    if (result == null) {
+      object=result=initialize();
+    }
+  }
+}
+**************************************************
+Evaluations: 716
+EstimatedTime: 1029754

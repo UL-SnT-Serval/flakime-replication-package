@@ -1,0 +1,18 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new IllegalArgumentException("Array cannot be empty.");
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 475
+Faulty:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+Evaluations: 419
+EstimatedTime: 583532

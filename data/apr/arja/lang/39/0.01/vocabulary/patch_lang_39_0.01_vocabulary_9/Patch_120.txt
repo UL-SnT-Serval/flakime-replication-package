@@ -1,0 +1,41 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.01/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3677
+Faulty:
+if (greater > 0) {
+  increase+=3 * greater;
+}
+Seed:
+start=textIndex + searchList[replaceIndex].length();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.01/vocabulary/project/src/java/org/apache/commons/lang3/builder/EqualsBuilder.java 275
+Faulty:
+testClass=rhsClass;
+Seed:
+if (lhsClass.isInstance(rhs)) {
+  testClass=lhsClass;
+  if (!rhsClass.isInstance(lhs)) {
+    testClass=rhsClass;
+  }
+}
+ else if (rhsClass.isInstance(lhs)) {
+  testClass=rhsClass;
+  if (!lhsClass.isInstance(rhs)) {
+    testClass=lhsClass;
+  }
+}
+ else {
+  return false;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.01/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=textIndex + searchList[replaceIndex].length();
+**************************************************
+Evaluations: 126
+EstimatedTime: 21341

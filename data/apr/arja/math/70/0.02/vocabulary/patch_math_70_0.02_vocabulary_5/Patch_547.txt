@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/ode/ContinuousOutputModel.java 148
+Faulty:
+final double previous=lastInterpolator.getPreviousTime();
+Seed:
+if (getInterpolatedState().length != model.getInterpolatedState().length) {
+  throw MathRuntimeException.createIllegalArgumentException("dimension mismatch {0} != {1}",getInterpolatedState().length,model.getInterpolatedState().length);
+}
+**************************************************
+Evaluations: 572
+EstimatedTime: 726736

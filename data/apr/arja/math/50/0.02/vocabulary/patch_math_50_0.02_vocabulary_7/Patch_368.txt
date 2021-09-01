@@ -1,0 +1,23 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 258
+Faulty:
+for (int i=lsd; i < mant.length; i++) {
+  final int r=mant[i] + rh;
+  rh=r / RADIX;
+  mant[i]=r % RADIX;
+}
+Seed:
+while (lsbthreshold > msb) {
+  lsbthreshold/=10;
+  cmaxdigits--;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (FastMath.abs(f1) <= ftol) {
+  return x1;
+}
+**************************************************
+Evaluations: 456
+EstimatedTime: 293060

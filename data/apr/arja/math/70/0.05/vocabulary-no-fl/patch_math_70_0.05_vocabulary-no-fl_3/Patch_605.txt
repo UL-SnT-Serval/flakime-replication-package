@@ -1,0 +1,36 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 80
+Faulty:
+verifyInterval(min,max);
+Seed:
+verifyInterval(min,max);
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 86
+Faulty:
+while (i < maximalIterationCount) {
+  m=UnivariateRealSolverUtils.midpoint(min,max);
+  fmin=f.value(min);
+  fm=f.value(m);
+  if (fm * fmin > 0.0) {
+    min=m;
+  }
+ else {
+    max=m;
+  }
+  if (Math.abs(max - min) <= absoluteAccuracy) {
+    m=UnivariateRealSolverUtils.midpoint(min,max);
+    setResult(m,i);
+    return m;
+  }
+  ++i;
+}
+Seed:
+this.defaultFunctionValueAccuracy=1.0e-15;
+**************************************************
+Evaluations: 798
+EstimatedTime: 118447

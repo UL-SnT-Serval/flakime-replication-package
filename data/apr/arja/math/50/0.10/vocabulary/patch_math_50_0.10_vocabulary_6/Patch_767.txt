@@ -1,0 +1,50 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.10/vocabulary/project/src/main/java/org/apache/commons/math/distribution/ChiSquaredDistributionImpl.java 112
+Faulty:
+return 0d;
+Seed:
+if (p == 0) {
+  return 0;
+}
+ else if (p == 1) {
+  return 1;
+}
+ else {
+  return super.inverseCumulativeProbability(p);
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.10/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f1 * fx < 0) {
+  x0=x1;
+  f0=f1;
+  inverted=!inverted;
+}
+ else {
+switch (method) {
+case ILLINOIS:
+    f0*=0.5;
+  break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.10/vocabulary/project/src/main/java/org/apache/commons/math/stat/descriptive/DescriptiveStatistics.java 401
+Faulty:
+percentileImpl.getClass().getMethod(SET_QUANTILE_METHOD_NAME,new Class[]{Double.TYPE}).invoke(percentileImpl,new Object[]{Double.valueOf(p)});
+Seed:
+this.geometricMeanImpl=geometricMeanImpl;
+**************************************************
+Evaluations: 866
+EstimatedTime: 1057181

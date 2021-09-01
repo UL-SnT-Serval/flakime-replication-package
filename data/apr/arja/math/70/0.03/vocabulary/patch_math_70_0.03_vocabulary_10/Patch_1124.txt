@@ -1,0 +1,25 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/MersenneTwister.java 161
+Faulty:
+if (seed == null) {
+  setSeed(System.currentTimeMillis());
+  return;
+}
+Seed:
+mti=0;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+this.f=f;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 58
+Faulty:
+setup(f);
+Seed:
+if (f == null) {
+  throw MathRuntimeException.createIllegalArgumentException("function to solve cannot be null");
+}
+**************************************************
+Evaluations: 1414
+EstimatedTime: 2281852

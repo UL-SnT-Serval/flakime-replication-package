@@ -1,0 +1,17 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 223
+Faulty:
+denominator/=2;
+Seed:
+if (denominator == Integer.MIN_VALUE && (numerator & 1) == 0) {
+  numerator/=2;
+  denominator/=2;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return 0;
+**************************************************
+Evaluations: 5
+EstimatedTime: 5654

@@ -1,0 +1,46 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 86
+Faulty:
+while (i < maximalIterationCount) {
+  m=UnivariateRealSolverUtils.midpoint(min,max);
+  fmin=f.value(min);
+  fm=f.value(m);
+  if (fm * fmin > 0.0) {
+    min=m;
+  }
+ else {
+    max=m;
+  }
+  if (Math.abs(max - min) <= absoluteAccuracy) {
+    m=UnivariateRealSolverUtils.midpoint(min,max);
+    setResult(m,i);
+    return m;
+  }
+  ++i;
+}
+Seed:
+while (i < maximalIterationCount) {
+  m=UnivariateRealSolverUtils.midpoint(min,max);
+  fmin=f.value(min);
+  fm=f.value(m);
+  if (fm * fmin > 0.0) {
+    min=m;
+  }
+ else {
+    max=m;
+  }
+  if (Math.abs(max - min) <= absoluteAccuracy) {
+    m=UnivariateRealSolverUtils.midpoint(min,max);
+    setResult(m,i);
+    return m;
+  }
+  ++i;
+}
+**************************************************
+Evaluations: 1230
+EstimatedTime: 324594

@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+inverted=!inverted;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 50
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+x0=x1;
+**************************************************
+Evaluations: 257
+EstimatedTime: 339505

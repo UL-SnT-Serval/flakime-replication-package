@@ -1,0 +1,58 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 151
+Faulty:
+if (t < extremeT) {
+  final Transformer previous=transformers[0];
+  final Transformer next=filter.selectTransformer(previous,rawG,forward);
+  if (next != previous) {
+    System.arraycopy(updates,0,updates,1,updates.length - 1);
+    System.arraycopy(transformers,0,transformers,1,transformers.length - 1);
+    updates[0]=extremeT;
+    transformers[0]=next;
+  }
+  extremeT=t;
+  return next.transformed(rawG);
+}
+ else {
+  for (int i=0; i < updates.length - 1; ++i) {
+    if (t <= updates[i]) {
+      return transformers[i].transformed(rawG);
+    }
+  }
+  return transformers[updates.length - 1].transformed(rawG);
+}
+Seed:
+if (t < extremeT) {
+  final Transformer previous=transformers[0];
+  final Transformer next=filter.selectTransformer(previous,rawG,forward);
+  if (next != previous) {
+    System.arraycopy(updates,0,updates,1,updates.length - 1);
+    System.arraycopy(transformers,0,transformers,1,transformers.length - 1);
+    updates[0]=extremeT;
+    transformers[0]=next;
+  }
+  extremeT=t;
+  return next.transformed(rawG);
+}
+ else {
+  for (int i=0; i < updates.length - 1; ++i) {
+    if (t <= updates[i]) {
+      return transformers[i].transformed(rawG);
+    }
+  }
+  return transformers[updates.length - 1].transformed(rawG);
+}
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 155
+Faulty:
+final Transformer previous=transformers[0];
+Seed:
+this.transformers=new Transformer[HISTORY_SIZE];
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1639
+EstimatedTime: 1020307

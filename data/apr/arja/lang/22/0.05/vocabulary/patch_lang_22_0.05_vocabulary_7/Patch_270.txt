@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/CharUtils.java 288
+Faulty:
+return toIntValue(ch.charValue());
+Seed:
+return toIntValue(ch.charValue());
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+Evaluations: 295
+EstimatedTime: 599932

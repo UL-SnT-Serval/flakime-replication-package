@@ -1,0 +1,36 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 355
+Faulty:
+return Math.acos(dot / normProduct);
+Seed:
+if (normProduct == 0) {
+  throw MathRuntimeException.createIllegalArgumentException("zero norm for rotation defining vector");
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+this.f=f;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/random/CorrelatedRandomVectorGenerator.java 196
+Faulty:
+for (int i=0; i < order; ++i) {
+  index[i]=i;
+}
+Seed:
+for (int i=0; i < rank; ++i) {
+  normalized[i]=generator.nextNormalizedDouble();
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 339
+Faulty:
+if (normProduct == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+Seed:
+if (normProduct == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+**************************************************
+Evaluations: 1284
+EstimatedTime: 881170

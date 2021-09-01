@@ -1,0 +1,16 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return 1;
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 591
+Faulty:
+if (u > 0) {
+  u=-u;
+}
+Seed:
+u=-u;
+**************************************************
+Evaluations: 496
+EstimatedTime: 724609

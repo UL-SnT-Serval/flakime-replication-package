@@ -1,0 +1,34 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 355
+Faulty:
+return Math.acos(dot / normProduct);
+Seed:
+if ((dot < -threshold) || (dot > threshold)) {
+  Vector3D v3=crossProduct(v1,v2);
+  if (dot >= 0) {
+    return Math.asin(v3.getNorm() / normProduct);
+  }
+  return Math.PI - Math.asin(v3.getNorm() / normProduct);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+this.f=f;
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 80
+Faulty:
+verifyInterval(min,max);
+Seed:
+checkResultComputed();
+**************************************************
+4 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/interpolation/MicrosphereInterpolator.java 115
+Faulty:
+if (microsphereElements < 0) {
+  throw MathRuntimeException.createIllegalArgumentException("number of microsphere elements must be positive, but got {0}",microsphereElements);
+}
+Seed:
+setMicropshereElements(microsphereElements);
+**************************************************
+Evaluations: 1206
+EstimatedTime: 828125

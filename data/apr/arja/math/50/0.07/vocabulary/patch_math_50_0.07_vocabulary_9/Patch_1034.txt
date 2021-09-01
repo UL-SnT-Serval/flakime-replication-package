@@ -1,0 +1,24 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/genetics/RandomKey.java 255
+Faulty:
+if (originalData.size() != permutedData.size()) {
+  throw new IllegalArgumentException("originalData and permutedData must have same length");
+}
+Seed:
+if (originalData.size() != permutedData.size()) {
+  throw new IllegalArgumentException("originalData and permutedData must have same length");
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 209
+Faulty:
+discarded|=mant[i];
+Seed:
+mant[0]=0;
+**************************************************
+Evaluations: 1314
+EstimatedTime: 2214285

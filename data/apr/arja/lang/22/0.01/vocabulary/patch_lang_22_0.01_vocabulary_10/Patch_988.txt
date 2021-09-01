@@ -1,0 +1,36 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 479
+Faulty:
+if (gcd == 1) {
+  return this;
+}
+Seed:
+if (denominator < 0) {
+  throw new ArithmeticException("The denominator must not be negative");
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 850
+Faulty:
+Fraction other=(Fraction)obj;
+Seed:
+if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate");
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 598
+Faulty:
+if (k == 31) {
+  throw new ArithmeticException("overflow: gcd is 2^31");
+}
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+4 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+Evaluations: 985
+EstimatedTime: 1329630

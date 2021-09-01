@@ -1,0 +1,26 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/concurrent/LazyInitializer.java 96
+Faulty:
+if (result == null) {
+synchronized (this) {
+    result=object;
+    if (result == null) {
+      object=result=initialize();
+    }
+  }
+}
+Seed:
+synchronized (this) {
+  result=object;
+  if (result == null) {
+    object=result=initialize();
+  }
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new NumberFormatException("A blank string is not a valid number");
+**************************************************
+Evaluations: 1803
+EstimatedTime: 2643177

@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 223
+Faulty:
+numerator/=2;
+Seed:
+denominator=-denominator;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u/=2;
+**************************************************
+Evaluations: 1365
+EstimatedTime: 2207622

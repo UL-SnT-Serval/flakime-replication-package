@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 478
+Faulty:
+int gcd=greatestCommonDivisor(Math.abs(numerator),denominator);
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u=-u;
+**************************************************
+Evaluations: 715
+EstimatedTime: 1075565

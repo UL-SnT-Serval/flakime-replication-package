@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v=-v;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 216
+Faulty:
+throw new ArithmeticException("The denominator must not be zero");
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate numerator");
+}
+**************************************************
+Evaluations: 1091
+EstimatedTime: 1344633

@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 591
+Faulty:
+if (u > 0) {
+  u=-u;
+}
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 592
+Faulty:
+v=-v;
+Seed:
+throw new IllegalArgumentException("Array cannot be empty.");
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 462
+EstimatedTime: 606125

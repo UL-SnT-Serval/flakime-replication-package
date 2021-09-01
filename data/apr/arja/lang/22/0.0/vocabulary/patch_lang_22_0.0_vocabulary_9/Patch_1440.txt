@@ -1,0 +1,18 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new NumberFormatException("A blank string is not a valid number");
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 609
+Faulty:
+while ((t & 1) == 0) {
+  t/=2;
+}
+Seed:
+while ((t & 1) == 0) {
+  t/=2;
+}
+**************************************************
+Evaluations: 1455
+EstimatedTime: 2055036

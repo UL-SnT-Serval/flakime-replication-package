@@ -1,0 +1,18 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v/=2;
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 603
+Faulty:
+int t=((u & 1) == 1) ? v : -(u / 2);
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 993
+EstimatedTime: 1548004

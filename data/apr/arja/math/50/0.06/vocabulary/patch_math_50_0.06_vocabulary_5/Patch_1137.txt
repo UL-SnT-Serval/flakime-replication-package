@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/interpolation/SmoothingPolynomialBicubicSplineInterpolator.java 131
+Faulty:
+final PolynomialFunction f=xPolyY[i];
+Seed:
+if (xval.length != fval.length) {
+  throw new DimensionMismatchException(xval.length,fval.length);
+}
+**************************************************
+Evaluations: 1231
+EstimatedTime: 2080717

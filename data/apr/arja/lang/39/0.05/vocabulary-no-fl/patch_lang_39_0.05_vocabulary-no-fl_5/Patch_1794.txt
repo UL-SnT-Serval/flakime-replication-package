@@ -1,0 +1,34 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3676
+Faulty:
+int greater=replacementList[i].length() - searchList[i].length();
+Seed:
+if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+  continue;
+}
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3682
+Faulty:
+increase=Math.min(increase,text.length() / 5);
+Seed:
+if (start < 0) {
+  start=0;
+}
+**************************************************
+3 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3727
+Faulty:
+return result;
+Seed:
+if (start < 0) {
+  start=0;
+}
+**************************************************
+4 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3635
+Faulty:
+boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+Seed:
+if (searchLength != replacementLength) {
+  throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+}
+**************************************************
+Evaluations: 1845
+EstimatedTime: 823741

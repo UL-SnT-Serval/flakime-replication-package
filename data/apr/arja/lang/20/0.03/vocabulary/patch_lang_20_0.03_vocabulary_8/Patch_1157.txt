@@ -1,0 +1,32 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3383
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
+Seed:
+StringBuilder buf=new StringBuilder(256);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3386
+Faulty:
+if (i > startIndex) {
+  buf.append(separator);
+}
+Seed:
+if (separator == null) {
+  return EMPTY;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3298
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);
+Seed:
+StringBuilder buf=new StringBuilder(4);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3302
+Faulty:
+buf.append(separator);
+Seed:
+if (i == -1) {
+  return StringUtils.EMPTY;
+}
+**************************************************
+Evaluations: 1180
+EstimatedTime: 613469

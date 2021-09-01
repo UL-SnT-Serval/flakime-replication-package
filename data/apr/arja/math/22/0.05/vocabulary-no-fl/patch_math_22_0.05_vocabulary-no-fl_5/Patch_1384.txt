@@ -1,0 +1,24 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 112
+Faulty:
+return 1 / (upper - lower);
+Seed:
+if (x < lower || x > upper) {
+  return 0.0;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 133
+Faulty:
+final double logm=FastMath.log(denominatorDegreesOfFreedom);
+Seed:
+if (x <= 0) {
+  return 0;
+}
+**************************************************
+Evaluations: 1500
+EstimatedTime: 1050233

@@ -1,0 +1,24 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/dfp/DfpMath.java 527
+Faulty:
+if (x.isNaN()) {
+  x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);
+  return x.dotrap(DfpField.FLAG_INVALID,POW_TRAP,x,x);
+}
+Seed:
+if (x.greaterThan(one) && y.classify() == Dfp.INFINITE) {
+  if (y.greaterThan(zero)) {
+    return y;
+  }
+ else {
+    return x.newInstance(zero);
+  }
+}
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1033
+EstimatedTime: 771897

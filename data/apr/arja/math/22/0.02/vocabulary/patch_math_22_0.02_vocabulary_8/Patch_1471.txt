@@ -1,0 +1,32 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 275
+Faulty:
+return true;
+Seed:
+return false;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/linear/HessenbergTransformer.java 86
+Faulty:
+final int high=n - 1;
+Seed:
+if (cachedH == null) {
+  final int m=householderVectors.length;
+  final double[][] h=new double[m][m];
+  for (int i=0; i < m; ++i) {
+    if (i > 0) {
+      h[i][i - 1]=householderVectors[i][i - 1];
+    }
+    for (int j=i; j < m; ++j) {
+      h[i][j]=householderVectors[i][j];
+    }
+  }
+  cachedH=MatrixUtils.createRealMatrix(h);
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+Evaluations: 1761
+EstimatedTime: 1137785

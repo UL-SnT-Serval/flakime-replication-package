@@ -1,0 +1,47 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 374
+Faulty:
+verifyInterval(lower,upper);
+Seed:
+UnivariateRealSolverUtils.verifyInterval(lower,upper);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (f1 * fx < 0) {
+  x0=x1;
+  f0=f1;
+  inverted=!inverted;
+}
+ else {
+switch (method) {
+case ILLINOIS:
+    f0*=0.5;
+  break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 305
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+verifyInterval(lower,upper);
+**************************************************
+Evaluations: 588
+EstimatedTime: 218209

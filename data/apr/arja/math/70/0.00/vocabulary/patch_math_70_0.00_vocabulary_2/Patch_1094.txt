@@ -1,0 +1,24 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 80
+Faulty:
+verifyInterval(min,max);
+Seed:
+if (!resultComputed) {
+  throw MathRuntimeException.createIllegalStateException("no result available");
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 85
+Faulty:
+int i=0;
+Seed:
+if (f.value(min) == 0.0) {
+  return min;
+}
+**************************************************
+Evaluations: 1318
+EstimatedTime: 145451

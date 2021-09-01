@@ -1,0 +1,35 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 107
+Faulty:
+double upperBound=getDomainUpperBound(p);
+Seed:
+if (p == 0) {
+  return -1;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java 322
+Faulty:
+oldDelta=delta;
+Seed:
+if ((y1 > 0) == (y2 > 0)) {
+  x2=x0;
+  y2=y0;
+  delta=x1 - x0;
+  oldDelta=delta;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 130
+Faulty:
+double root=UnivariateRealSolverUtils.solve(rootFindingFunction,bracket[0],bracket[1],getSolverAbsoluteAccuracy());
+Seed:
+if (p == 1) {
+  return Integer.MAX_VALUE;
+}
+**************************************************
+Evaluations: 425
+EstimatedTime: 286257

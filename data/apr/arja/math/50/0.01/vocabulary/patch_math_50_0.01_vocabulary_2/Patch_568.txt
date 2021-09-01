@@ -1,0 +1,19 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f1 == 0.0) {
+  return x1;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 444
+Faulty:
+rb+=(ya - za * ra - za * rb - zb * ra - zb * rb) * denomr;
+Seed:
+if (hiPrec != null) {
+  hiPrec[0]/=285040095144011776.0;
+  hiPrec[1]/=285040095144011776.0;
+}
+**************************************************
+Evaluations: 538
+EstimatedTime: 1424893

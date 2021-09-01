@@ -1,0 +1,14 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u=-u;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 228
+Faulty:
+throw new ArithmeticException("overflow: can't negate");
+Seed:
+denominator/=2;
+**************************************************
+Evaluations: 977
+EstimatedTime: 1893030

@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/distribution/FDistributionImpl.java 235
+Faulty:
+return numeratorDegreesOfFreedom;
+Seed:
+setNumeratorDegreesOfFreedomInternal(numeratorDegreesOfFreedom);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 66
+Faulty:
+return solve(f,min,max);
+Seed:
+verifyInterval(min,max);
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 1396
+EstimatedTime: 606036

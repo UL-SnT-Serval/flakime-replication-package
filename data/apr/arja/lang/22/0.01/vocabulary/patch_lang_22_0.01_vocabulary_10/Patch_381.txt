@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 5276
+Faulty:
+return false;
+Seed:
+return !StringUtils.isEmpty(cs);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+Evaluations: 383
+EstimatedTime: 480471

@@ -1,0 +1,51 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+increase=(increase < 0 ? 0 : increase);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3624
+Faulty:
+int replacementLength=replacementList.length;
+Seed:
+if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+  return text;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3696
+Faulty:
+replaceIndex=-1;
+Seed:
+while (textIndex != -1) {
+  for (int i=start; i < textIndex; i++) {
+    buf.append(text.charAt(i));
+  }
+  buf.append(replacementList[replaceIndex]);
+  start=textIndex + searchList[replaceIndex].length();
+  textIndex=-1;
+  replaceIndex=-1;
+  tempIndex=-1;
+  for (int i=0; i < searchLength; i++) {
+    if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+      continue;
+    }
+    tempIndex=text.indexOf(searchList[i],start);
+    if (tempIndex == -1) {
+      noMoreMatchesForReplIndex[i]=true;
+    }
+ else {
+      if (textIndex == -1 || tempIndex < textIndex) {
+        textIndex=tempIndex;
+        replaceIndex=i;
+      }
+    }
+  }
+}
+**************************************************
+Evaluations: 110
+EstimatedTime: 45310

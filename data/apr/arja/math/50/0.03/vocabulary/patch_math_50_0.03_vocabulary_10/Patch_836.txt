@@ -1,0 +1,21 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+  return x1;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/special/Beta.java 199
+Faulty:
+ret=Double.NaN;
+Seed:
+if (Double.isNaN(a) || Double.isNaN(b) || a <= 0.0 || b <= 0.0) {
+  ret=Double.NaN;
+}
+ else {
+  ret=Gamma.logGamma(a) + Gamma.logGamma(b) - Gamma.logGamma(a + b);
+}
+**************************************************
+Evaluations: 1134
+EstimatedTime: 750109

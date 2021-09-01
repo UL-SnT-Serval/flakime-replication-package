@@ -1,0 +1,41 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+switch (allowed) {
+case ANY_SIDE:
+  return x1;
+case LEFT_SIDE:
+if (inverted) {
+  return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 170
+Faulty:
+return 0;
+Seed:
+for (int i=mant.length - 1; i > 0; i--) {
+  mant[i]=mant[i - 1];
+}
+**************************************************
+Evaluations: 1677
+EstimatedTime: 1135608

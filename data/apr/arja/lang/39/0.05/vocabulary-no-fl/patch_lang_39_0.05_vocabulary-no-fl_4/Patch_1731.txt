@@ -1,0 +1,33 @@
+1 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+for (int i=0; i < searchLength; i++) {
+  if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+    continue;
+  }
+  tempIndex=text.indexOf(searchList[i],start);
+  if (tempIndex == -1) {
+    noMoreMatchesForReplIndex[i]=true;
+  }
+ else {
+    if (textIndex == -1 || tempIndex < textIndex) {
+      textIndex=tempIndex;
+      replaceIndex=i;
+    }
+  }
+}
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3696
+Faulty:
+replaceIndex=-1;
+Seed:
+textIndex=-1;
+**************************************************
+Evaluations: 1662
+EstimatedTime: 697082

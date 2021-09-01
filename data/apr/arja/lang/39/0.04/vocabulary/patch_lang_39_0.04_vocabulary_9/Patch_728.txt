@@ -1,0 +1,33 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.04/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+for (int i=0; i < searchLength; i++) {
+  if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+    continue;
+  }
+  tempIndex=text.indexOf(searchList[i]);
+  if (tempIndex == -1) {
+    noMoreMatchesForReplIndex[i]=true;
+  }
+ else {
+    if (textIndex == -1 || tempIndex < textIndex) {
+      textIndex=tempIndex;
+      replaceIndex=i;
+    }
+  }
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.04/vocabulary/project/src/java/org/apache/commons/lang3/LocaleUtils.java 128
+Faulty:
+return new Locale(str.substring(0,2),str.substring(3,5),str.substring(6));
+Seed:
+cAvailableLocaleSet=Collections.unmodifiableSet(new HashSet<Locale>(availableLocaleList()));
+**************************************************
+Evaluations: 690
+EstimatedTime: 237441

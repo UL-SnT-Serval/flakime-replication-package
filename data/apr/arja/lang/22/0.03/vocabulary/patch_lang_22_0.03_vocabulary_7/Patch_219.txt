@@ -1,0 +1,12 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+Evaluations: 228
+EstimatedTime: 327707

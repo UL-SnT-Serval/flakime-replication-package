@@ -1,0 +1,35 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=0;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3676
+Faulty:
+int greater=replacementList[i].length() - searchList[i].length();
+Seed:
+tempIndex=text.indexOf(searchList[i],start);
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3677
+Faulty:
+if (greater > 0) {
+  increase+=3 * greater;
+}
+Seed:
+start=0;
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3701
+Faulty:
+if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+  continue;
+}
+Seed:
+increase=(increase < 0 ? 0 : increase);
+**************************************************
+Evaluations: 771
+EstimatedTime: 219680

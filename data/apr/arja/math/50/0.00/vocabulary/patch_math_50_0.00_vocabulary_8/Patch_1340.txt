@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+return doSolve();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 151
+Faulty:
+final double rtol=getRelativeAccuracy();
+Seed:
+if (f0 == 0.0) {
+  return x0;
+}
+**************************************************
+Evaluations: 1384
+EstimatedTime: 505136

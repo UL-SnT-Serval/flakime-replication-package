@@ -1,0 +1,27 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (inverted) {
+  return x1;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3539
+Faulty:
+return (f > 0) ? 0.0f : -0.0f;
+Seed:
+if (Float.isNaN(f) || Float.isInfinite(f) || (f == 0f)) {
+  return f;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3805
+Faulty:
+return (int)floor(x + 0.5f);
+Seed:
+buildSinCosTables();
+**************************************************
+Evaluations: 172
+EstimatedTime: 177512

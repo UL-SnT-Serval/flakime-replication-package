@@ -1,0 +1,64 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3379
+Faulty:
+if (noOfItems <= 0) {
+  return EMPTY;
+}
+Seed:
+if (array == null) {
+  return null;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3298
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);
+Seed:
+StringBuilder buf=new StringBuilder(256);
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3383
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
+Seed:
+StringBuilder buf=new StringBuilder(256);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 1578
+Faulty:
+for (int i=0; i < csLength; i++) {
+  char ch=cs.charAt(i);
+  for (int j=0; j < searchLength; j++) {
+    if (searchChars[j] == ch) {
+      if (Character.isHighSurrogate(ch)) {
+        if (j == searchLast) {
+          return true;
+        }
+        if (i < csLast && searchChars[j + 1] == cs.charAt(i + 1)) {
+          return true;
+        }
+      }
+ else {
+        return true;
+      }
+    }
+  }
+}
+Seed:
+for (int i=0; i < csLength; i++) {
+  char ch=cs.charAt(i);
+  for (int j=0; j < searchLength; j++) {
+    if (searchChars[j] == ch) {
+      if (Character.isHighSurrogate(ch)) {
+        if (j == searchLast) {
+          return true;
+        }
+        if (i < csLast && searchChars[j + 1] == cs.charAt(i + 1)) {
+          return true;
+        }
+      }
+ else {
+        return true;
+      }
+    }
+  }
+}
+**************************************************
+Evaluations: 1638
+EstimatedTime: 386703

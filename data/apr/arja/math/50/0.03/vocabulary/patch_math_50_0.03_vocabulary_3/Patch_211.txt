@@ -1,0 +1,28 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2341
+Faulty:
+long d=shpiA & 0xffffffffL;
+Seed:
+slowSin(x,result);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+verifyBracketing(x0,x1);
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2344
+Faulty:
+long bd=b * d;
+Seed:
+x*=1.8014398509481984E16;
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2735
+Faulty:
+reducePayneHanek(xa,reduceResults);
+Seed:
+if (x < 0.0) {
+  x=-x;
+}
+**************************************************
+Evaluations: 268
+EstimatedTime: 459768

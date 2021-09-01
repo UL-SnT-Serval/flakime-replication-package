@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/dfp/BracketingNthOrderBrentSolverDFP.java 205
+Faulty:
+return x[1];
+Seed:
+if (y[1].isZero()) {
+  return x[1];
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/stat/inference/WilcoxonSignedRankTestImpl.java 98
+Faulty:
+final double[] z=new double[x.length];
+Seed:
+if (y.length == 0) {
+  throw new IllegalArgumentException("y must contain at least one element");
+}
+**************************************************
+Evaluations: 642
+EstimatedTime: 1094178

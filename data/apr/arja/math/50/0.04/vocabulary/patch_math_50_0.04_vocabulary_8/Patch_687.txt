@@ -1,0 +1,60 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f0=computeObjectiveValue(x0);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/optimization/direct/NelderMeadSimplex.java 273
+Faulty:
+final double[] xSmallest=getPoint(0).getPointRef();
+Seed:
+if (comparator.compare(reflected,worst) < 0) {
+  final double[] xC=new double[n];
+  for (int j=0; j < n; j++) {
+    xC[j]=centroid[j] + gamma * (xR[j] - centroid[j]);
+  }
+  final RealPointValuePair outContracted=new RealPointValuePair(xC,evaluationFunction.value(xC),false);
+  if (comparator.compare(outContracted,reflected) <= 0) {
+    replaceWorstPoint(outContracted,comparator);
+    return;
+  }
+}
+ else {
+  final double[] xC=new double[n];
+  for (int j=0; j < n; j++) {
+    xC[j]=centroid[j] - gamma * (centroid[j] - xWorst[j]);
+  }
+  final RealPointValuePair inContracted=new RealPointValuePair(xC,evaluationFunction.value(xC),false);
+  if (comparator.compare(inContracted,worst) < 0) {
+    replaceWorstPoint(inContracted,comparator);
+    return;
+  }
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/optimization/BaseMultiStartMultivariateRealOptimizer.java 180
+Faulty:
+Arrays.sort(optima,new Comparator<RealPointValuePair>(){
+  public int compare(  final RealPointValuePair o1,  final RealPointValuePair o2){
+    if (o1 == null) {
+      return (o2 == null) ? 0 : 1;
+    }
+ else     if (o2 == null) {
+      return -1;
+    }
+    final double v1=o1.getValue();
+    final double v2=o2.getValue();
+    return (goal == GoalType.MINIMIZE) ? Double.compare(v1,v2) : Double.compare(v2,v1);
+  }
+}
+);
+Seed:
+throw new MathIllegalStateException(LocalizedFormats.NO_OPTIMUM_COMPUTED_YET);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/optimization/direct/NelderMeadSimplex.java 277
+Faulty:
+x[j]=xSmallest[j] + sigma * (x[j] - xSmallest[j]);
+Seed:
+setPoint(i,new RealPointValuePair(x,Double.NaN,false));
+**************************************************
+Evaluations: 767
+EstimatedTime: 1207872

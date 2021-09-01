@@ -1,0 +1,14 @@
+1 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/geometry/euclidean/threed/FieldVector3D.java 335
+Faulty:
+array[2]=z;
+Seed:
+array[0]=x;
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1071
+EstimatedTime: 668047

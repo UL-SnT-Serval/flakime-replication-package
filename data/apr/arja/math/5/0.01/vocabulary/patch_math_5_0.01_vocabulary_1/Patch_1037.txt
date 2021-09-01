@@ -1,0 +1,28 @@
+1 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 300
+Faulty:
+if (isNaN) {
+  return NaN;
+}
+Seed:
+if (isInfinite) {
+  return ZERO;
+}
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 304
+Faulty:
+if (real == 0.0 && imaginary == 0.0) {
+  return NaN;
+}
+Seed:
+if (isNaN || Double.isInfinite(imaginary)) {
+  return NaN;
+}
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1193
+EstimatedTime: 241299

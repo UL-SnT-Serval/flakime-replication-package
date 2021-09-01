@@ -1,0 +1,62 @@
+1 Delete /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 125
+Faulty:
+System.arraycopy(updates,1,updates,0,last);
+Seed:
+for (int i=0; i < updates.length - 1; ++i) {
+  if (t <= updates[i]) {
+    return transformers[i].transformed(rawG);
+  }
+}
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 112
+Faulty:
+if (extremeT < t) {
+  final Transformer previous=transformers[last];
+  final Transformer next=filter.selectTransformer(previous,rawG,forward);
+  if (next != previous) {
+    System.arraycopy(updates,1,updates,0,last);
+    System.arraycopy(transformers,1,transformers,0,last);
+    updates[last]=extremeT;
+    transformers[last]=next;
+  }
+  extremeT=t;
+  return next.transformed(rawG);
+}
+ else {
+  for (int i=last; i > 0; --i) {
+    if (updates[i] <= t) {
+      return transformers[i].transformed(rawG);
+    }
+  }
+  return transformers[0].transformed(rawG);
+}
+Seed:
+if (extremeT < t) {
+  final Transformer previous=transformers[last];
+  final Transformer next=filter.selectTransformer(previous,rawG,forward);
+  if (next != previous) {
+    System.arraycopy(updates,1,updates,0,last);
+    System.arraycopy(transformers,1,transformers,0,last);
+    updates[last]=extremeT;
+    transformers[last]=next;
+  }
+  extremeT=t;
+  return next.transformed(rawG);
+}
+ else {
+  for (int i=last; i > 0; --i) {
+    if (updates[i] <= t) {
+      return transformers[i].transformed(rawG);
+    }
+  }
+  return transformers[0].transformed(rawG);
+}
+**************************************************
+Evaluations: 1687
+EstimatedTime: 1079693

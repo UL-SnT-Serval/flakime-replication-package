@@ -1,0 +1,19 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+return inverted ? x1 : x0;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3725
+Faulty:
+return x;
+Seed:
+if (x != x || x == 0.0) {
+  return x;
+}
+**************************************************
+Evaluations: 347
+EstimatedTime: 381540

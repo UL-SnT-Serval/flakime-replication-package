@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 257
+Faulty:
+sum+=a[k - 1][l] * yDotK[l][j];
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3258
+Faulty:
+if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+Seed:
+if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+**************************************************
+Evaluations: 282
+EstimatedTime: 729395

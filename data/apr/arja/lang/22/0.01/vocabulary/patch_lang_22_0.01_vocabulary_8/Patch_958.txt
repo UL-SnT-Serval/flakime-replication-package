@@ -1,0 +1,19 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 614
+Faulty:
+u=-t;
+Seed:
+if (t > 0) {
+  u=-t;
+}
+ else {
+  v=t;
+}
+**************************************************
+Evaluations: 947
+EstimatedTime: 2748845

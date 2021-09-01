@@ -1,0 +1,30 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 310
+Faulty:
+return (fLo >= 0 && fHi <= 0) || (fLo <= 0 && fHi >= 0);
+Seed:
+if (lower >= upper) {
+  throw new NumberIsTooLargeException(LocalizedFormats.ENDPOINTS_NOT_AN_INTERVAL,lower,upper,false);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 371
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+UnivariateRealSolverUtils.verifyInterval(lower,upper);
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 199
+Faulty:
+f1=fx;
+Seed:
+x1=x;
+**************************************************
+Evaluations: 1238
+EstimatedTime: 567048

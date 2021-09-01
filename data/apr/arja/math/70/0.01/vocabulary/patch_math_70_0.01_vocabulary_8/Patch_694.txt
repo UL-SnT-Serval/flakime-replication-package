@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/linear/QRDecompositionImpl.java 167
+Faulty:
+return cachedR;
+Seed:
+this.qrt=qrt;
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 778
+EstimatedTime: 339341

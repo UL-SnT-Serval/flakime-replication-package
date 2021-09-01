@@ -1,0 +1,32 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.00/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.00/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 343
+Faulty:
+if (other instanceof Complex) {
+  Complex c=(Complex)other;
+  if (c.isNaN) {
+    return isNaN;
+  }
+ else {
+    return (real == c.real) && (imaginary == c.imaginary);
+  }
+}
+Seed:
+if (this == other) {
+  return true;
+}
+**************************************************
+3 InsertBefore /home/afranci/flakime-results/results/math/5/0.00/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 344
+Faulty:
+Complex c=(Complex)other;
+Seed:
+if (this == other) {
+  return true;
+}
+**************************************************
+Evaluations: 628
+EstimatedTime: 169359

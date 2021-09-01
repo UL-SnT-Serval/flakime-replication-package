@@ -1,0 +1,41 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f0=f1;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/optimization/direct/NelderMeadSimplex.java 274
+Faulty:
+for (int i=1; i <= n; i++) {
+  final double[] x=getPoint(i).getPoint();
+  for (int j=0; j < n; j++) {
+    x[j]=xSmallest[j] + sigma * (x[j] - xSmallest[j]);
+  }
+  setPoint(i,new RealPointValuePair(x,Double.NaN,false));
+}
+Seed:
+if (comparator.compare(reflected,worst) < 0) {
+  final double[] xC=new double[n];
+  for (int j=0; j < n; j++) {
+    xC[j]=centroid[j] + gamma * (xR[j] - centroid[j]);
+  }
+  final RealPointValuePair outContracted=new RealPointValuePair(xC,evaluationFunction.value(xC),false);
+  if (comparator.compare(outContracted,reflected) <= 0) {
+    replaceWorstPoint(outContracted,comparator);
+    return;
+  }
+}
+ else {
+  final double[] xC=new double[n];
+  for (int j=0; j < n; j++) {
+    xC[j]=centroid[j] - gamma * (centroid[j] - xWorst[j]);
+  }
+  final RealPointValuePair inContracted=new RealPointValuePair(xC,evaluationFunction.value(xC),false);
+  if (comparator.compare(inContracted,worst) < 0) {
+    replaceWorstPoint(inContracted,comparator);
+    return;
+  }
+}
+**************************************************
+Evaluations: 897
+EstimatedTime: 746404

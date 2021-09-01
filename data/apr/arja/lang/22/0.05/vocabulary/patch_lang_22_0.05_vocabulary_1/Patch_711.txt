@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v=-v;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+Evaluations: 725
+EstimatedTime: 1926809

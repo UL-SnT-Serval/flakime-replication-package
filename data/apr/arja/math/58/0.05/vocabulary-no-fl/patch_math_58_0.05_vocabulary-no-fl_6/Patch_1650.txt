@@ -1,0 +1,25 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 273
+Faulty:
+for (final WeightedObservedPoint point : points) {
+  minY=Math.min(minY,point.getY());
+  maxY=Math.max(maxY,point.getY());
+}
+Seed:
+if (parameters == null) {
+  parameters=basicGuess(observations);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 185
+Faulty:
+params[2]=fwhmApprox / (2.0 * Math.sqrt(2.0 * Math.log(2.0)));
+Seed:
+params[1]=points[maxYIdx].getX();
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+Evaluations: 1731
+EstimatedTime: 626007

@@ -1,0 +1,27 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/geometry/euclidean/oned/OrientedPoint.java 75
+Faulty:
+return new SubOrientedPoint(this,null);
+Seed:
+this.location=location;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/geometry/euclidean/oned/IntervalsSet.java 108
+Faulty:
+if (Double.isInfinite(upper) && (upper > 0)) {
+  return new BSPTree<Euclidean1D>(lowerCut,new BSPTree<Euclidean1D>(Boolean.FALSE),new BSPTree<Euclidean1D>(Boolean.TRUE),null);
+}
+Seed:
+if (Double.isInfinite(upper) && (upper > 0)) {
+  return new BSPTree<Euclidean1D>(lowerCut,new BSPTree<Euclidean1D>(Boolean.FALSE),new BSPTree<Euclidean1D>(Boolean.TRUE),null);
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+**************************************************
+Evaluations: 178
+EstimatedTime: 238925

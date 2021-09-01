@@ -1,0 +1,36 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 264
+Faulty:
+if (isBetween(y,points[i].getY(),points[i + idxStep].getY())) {
+  return (idxStep < 0) ? new WeightedObservedPoint[]{points[i + idxStep],points[i]} : new WeightedObservedPoint[]{points[i],points[i + idxStep]};
+}
+Seed:
+Arrays.sort(points,createWeightedObservedPointComparator());
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 156
+Faulty:
+if (parameters == null) {
+  parameters=basicGuess(observations);
+}
+Seed:
+if (observations.length < 3) {
+  throw new NumberIsTooSmallException(observations.length,3,true);
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 271
+Faulty:
+double minY=Double.POSITIVE_INFINITY;
+Seed:
+for (int i=startIdx; (idxStep < 0) ? (i + idxStep >= 0) : (i + idxStep < points.length); i+=idxStep) {
+  if (isBetween(y,points[i].getY(),points[i + idxStep].getY())) {
+    return (idxStep < 0) ? new WeightedObservedPoint[]{points[i + idxStep],points[i]} : new WeightedObservedPoint[]{points[i],points[i + idxStep]};
+  }
+}
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+Evaluations: 690
+EstimatedTime: 245265

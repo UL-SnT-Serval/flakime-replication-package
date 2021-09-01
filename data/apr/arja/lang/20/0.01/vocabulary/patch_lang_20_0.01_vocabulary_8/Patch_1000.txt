@@ -1,0 +1,32 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3256
+Faulty:
+if (array == null) {
+  return null;
+}
+Seed:
+if (array == null) {
+  return null;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3260
+Faulty:
+return join(array,separator,0,array.length);
+Seed:
+if (!java6Available || java6NormalizerFormNFD == null) {
+  throw new IllegalStateException("java.text.Normalizer is not available");
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3298
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);
+Seed:
+StringBuilder buf=new StringBuilder(4);
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3383
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
+Seed:
+StringBuilder buf=new StringBuilder(4);
+**************************************************
+Evaluations: 969
+EstimatedTime: 223014

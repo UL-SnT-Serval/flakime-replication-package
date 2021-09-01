@@ -1,0 +1,33 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 230
+Faulty:
+numerator=-numerator;
+Seed:
+if (numerator == 0) {
+  throw new ArithmeticException("Unable to invert zero.");
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 613
+Faulty:
+if (t > 0) {
+  u=-t;
+}
+ else {
+  v=t;
+}
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 708
+EstimatedTime: 928083

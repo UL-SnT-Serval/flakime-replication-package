@@ -1,0 +1,28 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 598
+Faulty:
+if (k == 31) {
+  throw new ArithmeticException("overflow: gcd is 2^31");
+}
+Seed:
+while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+  u/=2;
+  v/=2;
+  k++;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 609
+Faulty:
+while ((t & 1) == 0) {
+  t/=2;
+}
+Seed:
+v=-v;
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+Evaluations: 1738
+EstimatedTime: 3350880

@@ -1,0 +1,18 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 478
+Faulty:
+int gcd=greatestCommonDivisor(Math.abs(numerator),denominator);
+Seed:
+if (toString == null) {
+  toString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+}
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 373
+EstimatedTime: 435618

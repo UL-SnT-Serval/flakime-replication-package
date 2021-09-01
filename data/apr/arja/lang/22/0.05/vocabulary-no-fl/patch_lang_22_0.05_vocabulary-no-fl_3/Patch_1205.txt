@@ -1,0 +1,22 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 623
+Faulty:
+return -u * (1 << k);
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 482
+Faulty:
+return Fraction.getFraction(numerator / gcd,denominator / gcd);
+Seed:
+toProperString="1";
+**************************************************
+3 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+Evaluations: 1228
+EstimatedTime: 1757462

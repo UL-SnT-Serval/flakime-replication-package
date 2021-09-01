@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 373
+Faulty:
+final double a2=(twolpd / delta) * Math.exp(-delta * (1 + delta) / twolpd);
+Seed:
+if (mean <= 0) {
+  throw MathRuntimeException.createIllegalArgumentException("the Poisson mean must be positive ({0})",mean);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 437
+EstimatedTime: 1198854

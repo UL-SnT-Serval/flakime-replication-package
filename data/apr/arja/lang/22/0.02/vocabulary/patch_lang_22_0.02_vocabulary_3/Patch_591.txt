@@ -1,0 +1,26 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u=-u;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 851
+Faulty:
+return (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator());
+Seed:
+if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate");
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 230
+Faulty:
+numerator=-numerator;
+Seed:
+if (numerator == 0) {
+  return ZERO;
+}
+**************************************************
+Evaluations: 587
+EstimatedTime: 749533

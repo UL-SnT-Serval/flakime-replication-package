@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.09/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 623
+Faulty:
+return negative ? -absAsinh : absAsinh;
+Seed:
+a=-a;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.09/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+Evaluations: 1589
+EstimatedTime: 2547097

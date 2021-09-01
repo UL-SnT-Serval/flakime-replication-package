@@ -1,0 +1,14 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/linear/ArrayRealVector.java 528
+Faulty:
+double sum=0;
+Seed:
+checkVectorDimensions(v.getDimension());
+**************************************************
+Evaluations: 935
+EstimatedTime: 580756

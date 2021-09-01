@@ -1,0 +1,22 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.allowed=AllowedSolution.ANY_SIDE;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/util/ResizableDoubleArray.java 724
+Faulty:
+checkContractExpand(getContractionCriteria(),expansionFactor);
+Seed:
+synchronized (this) {
+  this.expansionMode=expansionMode;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/stat/regression/GLSMultipleLinearRegression.java 97
+Faulty:
+RealMatrix XTOIX=XT.multiply(OI).multiply(X);
+Seed:
+OmegaInverse=new LUDecompositionImpl(Omega).getSolver().getInverse();
+**************************************************
+Evaluations: 649
+EstimatedTime: 637531

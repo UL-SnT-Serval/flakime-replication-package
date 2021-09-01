@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 339
+Faulty:
+if (normProduct == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+Seed:
+if (normProduct == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 1114
+EstimatedTime: 1531867

@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 257
+Faulty:
+sum+=a[k - 1][l] * yDotK[l][j];
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/DormandPrince853StepInterpolator.java 297
+Faulty:
+v=new double[7][];
+Seed:
+yDotKLast[2]=(dimension < 0) ? null : new double[dimension];
+**************************************************
+Evaluations: 852
+EstimatedTime: 2198777

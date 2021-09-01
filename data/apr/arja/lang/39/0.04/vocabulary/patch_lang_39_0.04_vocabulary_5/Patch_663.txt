@@ -1,0 +1,21 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.04/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=' ';
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.04/vocabulary/project/src/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java 65
+Faulty:
+return 2 + (end - start) + (isHex ? 1 : 0)+ 1;
+Seed:
+if (out == null) {
+  throw new IllegalArgumentException("The Writer must not be null");
+}
+**************************************************
+Evaluations: 673
+EstimatedTime: 405795

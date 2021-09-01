@@ -1,0 +1,43 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (f1 * fx < 0) {
+  x0=x1;
+  f0=f1;
+  inverted=!inverted;
+}
+ else {
+switch (method) {
+case ILLINOIS:
+    f0*=0.5;
+  break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3530
+Faulty:
+if ((n > -127) && (n < 128)) {
+  return f * Float.intBitsToFloat((n + 127) << 23);
+}
+Seed:
+if (Float.isNaN(f) || Float.isInfinite(f) || (f == 0f)) {
+  return f;
+}
+**************************************************
+Evaluations: 818
+EstimatedTime: 898499

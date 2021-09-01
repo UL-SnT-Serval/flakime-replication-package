@@ -1,0 +1,26 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (FastMath.abs(f1) <= ftol) {
+  return x1;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3701
+Faulty:
+if (f == 0f) {
+  return (direction < 0) ? -Float.MIN_VALUE : Float.MIN_VALUE;
+}
+Seed:
+if (f == 0f) {
+  return (direction < 0) ? -Float.MIN_VALUE : Float.MIN_VALUE;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3702
+Faulty:
+return (direction < 0) ? -Float.MIN_VALUE : Float.MIN_VALUE;
+Seed:
+throw MathRuntimeException.createConcurrentModificationException(LocalizedFormats.MAP_MODIFIED_WHILE_ITERATING);
+**************************************************
+Evaluations: 1465
+EstimatedTime: 724110

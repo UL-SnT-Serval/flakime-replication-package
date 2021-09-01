@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3533
+Faulty:
+if (iterable == null) {
+  return null;
+}
+Seed:
+if (!java6Available || java6NormalizerFormNFD == null) {
+  throw new IllegalStateException("java.text.Normalizer is not available");
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 815
+EstimatedTime: 1130241

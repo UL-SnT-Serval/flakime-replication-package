@@ -1,0 +1,8 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+return doSolve();
+**************************************************
+Evaluations: 20
+EstimatedTime: 14181

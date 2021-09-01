@@ -1,0 +1,22 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 479
+Faulty:
+if (gcd == 1) {
+  return this;
+}
+Seed:
+if (numerator == 0) {
+  return ZERO;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+**************************************************
+Evaluations: 1190
+EstimatedTime: 2820720

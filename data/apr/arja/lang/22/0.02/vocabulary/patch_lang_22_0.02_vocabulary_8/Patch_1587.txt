@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/ClassUtils.java 295
+Faulty:
+superclass=superclass.getSuperclass();
+Seed:
+addAbbreviation("int","I");
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u/=2;
+**************************************************
+Evaluations: 1584
+EstimatedTime: 2591301

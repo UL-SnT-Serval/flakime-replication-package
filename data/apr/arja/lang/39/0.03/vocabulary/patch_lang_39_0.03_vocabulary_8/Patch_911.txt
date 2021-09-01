@@ -1,0 +1,21 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/ClassUtils.java 353
+Faulty:
+if (classNames == null) {
+  return null;
+}
+Seed:
+primitiveWrapperMap.put(Long.TYPE,Long.class);
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=' ';
+**************************************************
+Evaluations: 868
+EstimatedTime: 180560

@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 457
+Faulty:
+return NaN;
+Seed:
+return this.add(this.sqrt1z().multiply(I)).log().multiply(I.negate());
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+x1=x;
+**************************************************
+Evaluations: 271
+EstimatedTime: 474476

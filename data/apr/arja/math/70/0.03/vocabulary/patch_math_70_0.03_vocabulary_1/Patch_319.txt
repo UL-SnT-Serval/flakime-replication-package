@@ -1,0 +1,55 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1486
+Faulty:
+if (b == Long.MIN_VALUE) {
+  if (a < 0) {
+    ret=a - b;
+  }
+ else {
+    throw new ArithmeticException(msg);
+  }
+}
+ else {
+  ret=addAndCheck(a,-b,msg);
+}
+Seed:
+if (a <= Long.MAX_VALUE - b) {
+  ret=a + b;
+}
+ else {
+  throw new ArithmeticException(msg);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 369
+Faulty:
+final double delta=Math.sqrt(lambda * Math.log(32 * lambda / Math.PI + 1));
+Seed:
+secRand.setSeed(System.currentTimeMillis());
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 373
+Faulty:
+final double a2=(twolpd / delta) * Math.exp(-delta * (1 + delta) / twolpd);
+Seed:
+if (mean <= 0) {
+  throw MathRuntimeException.createIllegalArgumentException("the Poisson mean must be positive ({0})",mean);
+}
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+5 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1490
+Faulty:
+throw new ArithmeticException(msg);
+Seed:
+return addAndCheck(a,b,"overflow: add");
+**************************************************
+6 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 368
+Faulty:
+final long y2=lambdaFractional < Double.MIN_VALUE ? 0 : nextPoisson(lambdaFractional);
+Seed:
+secRand=new SecureRandom();
+**************************************************
+Evaluations: 427
+EstimatedTime: 1164736

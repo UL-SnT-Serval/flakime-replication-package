@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 348
+Faulty:
+if (dot >= 0) {
+  return Math.asin(v3.getNorm() / normProduct);
+}
+Seed:
+if (threshold == 0) {
+  throw MathRuntimeException.createArithmeticException("zero norm");
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/ode/ContinuousOutputModel.java 149
+Faulty:
+final double step=current - previous;
+Seed:
+for (StepInterpolator interpolator : model.steps) {
+  steps.add(interpolator.copy());
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 1587
+EstimatedTime: 2256152

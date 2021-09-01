@@ -1,0 +1,44 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f0 == 0.0) {
+  return x0;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1523
+Faulty:
+double y=x * 0.333333333333333 - 0.5;
+Seed:
+if (x <= -1.0 || x >= 1.0) {
+  double hiPrec[]=new double[2];
+  exp(x,0.0,hiPrec);
+  if (x > 0.0) {
+    return -1.0 + hiPrec[0] + hiPrec[1];
+  }
+ else {
+    final double ra=-1.0 + hiPrec[0];
+    double rb=-(ra + 1.0 - hiPrec[0]);
+    rb+=hiPrec[1];
+    return ra + rb;
+  }
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1524
+Faulty:
+y=y * x + 1.0;
+Seed:
+if (y == 0.0) {
+  return 1.0;
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1525
+Faulty:
+y=y * x;
+Seed:
+if (x != x || x == 0.0) {
+  return x;
+}
+**************************************************
+Evaluations: 359
+EstimatedTime: 943550

@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+incrementEvaluationCount();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3832
+Faulty:
+if (a > b) {
+  return b;
+}
+Seed:
+buildSinCosTables();
+**************************************************
+Evaluations: 1452
+EstimatedTime: 728640

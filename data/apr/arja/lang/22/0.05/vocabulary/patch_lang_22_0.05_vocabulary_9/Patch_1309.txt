@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u=-u;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 216
+Faulty:
+throw new ArithmeticException("The denominator must not be zero");
+Seed:
+if (denominator < 0) {
+  if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+    throw new ArithmeticException("overflow: can't negate");
+  }
+  numerator=-numerator;
+  denominator=-denominator;
+}
+**************************************************
+Evaluations: 1355
+EstimatedTime: 1973393

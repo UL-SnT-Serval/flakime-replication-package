@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 102
+Faulty:
+double lowerBound=getDomainLowerBound(p);
+Seed:
+if (p < 0 || p > 1) {
+  throw new OutOfRangeException(p,0,1);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+Evaluations: 1784
+EstimatedTime: 1816072

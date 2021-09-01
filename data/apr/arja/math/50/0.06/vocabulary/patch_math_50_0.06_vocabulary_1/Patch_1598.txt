@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/stat/inference/WilcoxonSignedRankTestImpl.java 78
+Faulty:
+if (x.length != y.length) {
+  throw new IllegalArgumentException("x and y must contain the same number of elements");
+}
+Seed:
+if (x == null) {
+  throw new IllegalArgumentException("x must not be null");
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+x1=x;
+**************************************************
+Evaluations: 1624
+EstimatedTime: 2796150

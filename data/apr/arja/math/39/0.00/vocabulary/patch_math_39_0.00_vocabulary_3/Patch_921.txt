@@ -1,0 +1,43 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/DormandPrince853StepInterpolator.java 293
+Faulty:
+for (int k=0; k < yDotKLast.length; ++k) {
+  yDotKLast[k]=new double[dimension];
+}
+Seed:
+yDotKLast[2]=(dimension < 0) ? null : new double[dimension];
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 257
+Faulty:
+sum+=a[k - 1][l] * yDotK[l][j];
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3252
+Faulty:
+if (Double.isNaN(d) || Double.isNaN(direction)) {
+  return Double.NaN;
+}
+ else if (d == direction) {
+  return direction;
+}
+ else if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+Seed:
+if (d == direction) {
+  return direction;
+}
+ else if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+**************************************************
+Evaluations: 958
+EstimatedTime: 2434260

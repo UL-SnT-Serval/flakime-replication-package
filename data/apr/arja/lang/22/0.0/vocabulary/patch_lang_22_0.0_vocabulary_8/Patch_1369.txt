@@ -1,0 +1,26 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u/=2;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 850
+Faulty:
+Fraction other=(Fraction)obj;
+Seed:
+if (toString == null) {
+  toString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 479
+Faulty:
+if (gcd == 1) {
+  return this;
+}
+Seed:
+toProperString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+**************************************************
+Evaluations: 1351
+EstimatedTime: 1584674

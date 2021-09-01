@@ -1,0 +1,30 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/linear/RealMatrixImpl.java 779
+Faulty:
+final double[] out=new double[v.length];
+Seed:
+final double[] out=new double[nRows];
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/random/AbstractRandomGenerator.java 235
+Faulty:
+cachedNormalDeviate=Double.NaN;
+Seed:
+if (!Double.isNaN(cachedNormalDeviate)) {
+  double dev=cachedNormalDeviate;
+  cachedNormalDeviate=Double.NaN;
+  return dev;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/random/AbstractRandomGenerator.java 243
+Faulty:
+v2=2 * nextDouble() - 1;
+Seed:
+v1=2 * nextDouble() - 1;
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/linear/BigMatrixImpl.java 991
+Faulty:
+final BigDecimal[] out=new BigDecimal[v.length];
+Seed:
+final BigDecimal[] out=new BigDecimal[nRows];
+**************************************************
+Evaluations: 1462
+EstimatedTime: 936241

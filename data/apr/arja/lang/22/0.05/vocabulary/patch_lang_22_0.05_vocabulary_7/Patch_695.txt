@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 476
+Faulty:
+return equals(ZERO) ? this : ZERO;
+Seed:
+toProperString="0";
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+Evaluations: 719
+EstimatedTime: 1426381

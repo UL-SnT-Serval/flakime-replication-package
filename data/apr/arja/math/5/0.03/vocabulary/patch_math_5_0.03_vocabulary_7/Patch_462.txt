@@ -1,0 +1,20 @@
+1 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/dfp/DfpMath.java 537
+Faulty:
+x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);
+Seed:
+x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunction.java 200
+Faulty:
+double[] newCoefficients=new double[highLength];
+Seed:
+MathUtils.checkNotNull(coefficients);
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 537
+EstimatedTime: 394286

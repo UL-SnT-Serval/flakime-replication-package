@@ -1,0 +1,48 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/stat/regression/AbstractMultipleLinearRegression.java 97
+Faulty:
+if (data.length != nobs * (nvars + 1)) {
+  throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.INVALID_REGRESSION_ARRAY,data.length,nobs,nvars);
+}
+Seed:
+if (data == null) {
+  throw MathRuntimeException.createIllegalArgumentException(LocalizedFormats.NULL_NOT_ALLOWED);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+    return x1;
+case LEFT_SIDE:
+  if (inverted) {
+    return x1;
+  }
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+Evaluations: 1904
+EstimatedTime: 1376369

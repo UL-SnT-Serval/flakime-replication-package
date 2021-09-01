@@ -1,0 +1,17 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+break;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 239
+Faulty:
+return x1;
+Seed:
+this.allowed=AllowedSolution.ANY_SIDE;
+**************************************************
+Evaluations: 1724
+EstimatedTime: 649748

@@ -1,0 +1,20 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 480
+Faulty:
+return this;
+Seed:
+if (hashCode == 0) {
+  hashCode=37 * (37 * 17 + getNumerator()) + getDenominator();
+}
+**************************************************
+Evaluations: 1376
+EstimatedTime: 2032371

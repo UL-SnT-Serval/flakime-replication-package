@@ -1,0 +1,24 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/math/5/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/complex/Complex.java 300
+Faulty:
+if (isNaN) {
+  return NaN;
+}
+Seed:
+isInfinite=!isNaN && (Double.isInfinite(real) || Double.isInfinite(imaginary));
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/math/5/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+3 Delete /mnt/d/workspaces/flakime/data/apr/arja/math/5/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/complex/Complex.java 340
+Faulty:
+if (this == other) {
+  return true;
+}
+Seed:
+this.imaginary=imaginary;
+**************************************************
+Evaluations: 740
+EstimatedTime: 300365

@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 371
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+UnivariateRealSolverUtils.verifyInterval(lower,upper);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+incrementEvaluationCount();
+**************************************************
+Evaluations: 1229
+EstimatedTime: 618222

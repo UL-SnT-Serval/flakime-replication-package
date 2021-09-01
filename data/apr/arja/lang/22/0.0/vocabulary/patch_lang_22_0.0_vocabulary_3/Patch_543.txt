@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 850
+Faulty:
+Fraction other=(Fraction)obj;
+Seed:
+if (obj == this) {
+  return true;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u=-u;
+**************************************************
+Evaluations: 531
+EstimatedTime: 740516

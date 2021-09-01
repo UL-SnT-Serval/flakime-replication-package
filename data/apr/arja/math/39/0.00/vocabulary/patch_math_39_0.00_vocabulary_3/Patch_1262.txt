@@ -1,0 +1,35 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 257
+Faulty:
+sum+=a[k - 1][l] * yDotK[l][j];
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3264
+Faulty:
+final long bits=Double.doubleToLongBits(d);
+Seed:
+if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3256
+Faulty:
+if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+Seed:
+return Math.random();
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/DormandPrince853StepInterpolator.java 290
+Faulty:
+final int dimension=currentState.length;
+Seed:
+super.reinitialize(integrator,y,yDotK,forward,primaryMapper,secondaryMappers);
+**************************************************
+Evaluations: 1316
+EstimatedTime: 3221457

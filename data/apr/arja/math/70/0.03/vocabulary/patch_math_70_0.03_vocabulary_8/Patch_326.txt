@@ -1,0 +1,32 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/distribution/FDistributionImpl.java 213
+Faulty:
+setNumeratorDegreesOfFreedomInternal(degreesOfFreedom);
+Seed:
+setDenominatorDegreesOfFreedomInternal(denominatorDegreesOfFreedom);
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 79
+Faulty:
+clearResult();
+Seed:
+resultComputed=true;
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 85
+Faulty:
+int i=0;
+Seed:
+this.defaultFunctionValueAccuracy=1.0e-15;
+**************************************************
+5 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 87
+Faulty:
+m=UnivariateRealSolverUtils.midpoint(min,max);
+Seed:
+this.iterationCount=iterationCount;
+**************************************************
+Evaluations: 402
+EstimatedTime: 167580

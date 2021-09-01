@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+this.f=f;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 88
+Faulty:
+fmin=f.value(min);
+Seed:
+this.iterationCount=0;
+**************************************************
+Evaluations: 531
+EstimatedTime: 78438

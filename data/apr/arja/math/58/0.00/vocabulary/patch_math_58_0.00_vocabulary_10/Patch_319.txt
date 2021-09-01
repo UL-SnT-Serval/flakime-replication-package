@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 183
+Faulty:
+fwhmApprox=points[points.length - 1].getX() - points[0].getX();
+Seed:
+params[1]=points[maxYIdx].getX();
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 275
+Faulty:
+maxY=Math.max(maxY,point.getY());
+Seed:
+this.observations=observations.clone();
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+Evaluations: 337
+EstimatedTime: 250951

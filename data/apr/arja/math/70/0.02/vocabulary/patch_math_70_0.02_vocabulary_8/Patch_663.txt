@@ -1,0 +1,24 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/stat/regression/GLSMultipleLinearRegression.java 96
+Faulty:
+RealMatrix OI=getOmegaInverse();
+Seed:
+OmegaInverse=new LUDecompositionImpl(Omega).getSolver().getInverse();
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/distribution/FDistributionImpl.java 197
+Faulty:
+if (d > 2.0) {
+  ret=d / (d - 2.0);
+}
+Seed:
+if (p == 0) {
+  return Double.NEGATIVE_INFINITY;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 829
+EstimatedTime: 659267

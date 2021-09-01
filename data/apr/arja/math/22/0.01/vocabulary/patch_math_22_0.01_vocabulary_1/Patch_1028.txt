@@ -1,0 +1,32 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 129
+Faulty:
+final double nhalf=numeratorDegreesOfFreedom / 2;
+Seed:
+if (x <= 0) {
+  return 0;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 130
+Faulty:
+final double mhalf=denominatorDegreesOfFreedom / 2;
+Seed:
+if (x <= 0) {
+  return 0;
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 134
+Faulty:
+final double lognxm=FastMath.log(numeratorDegreesOfFreedom * x + denominatorDegreesOfFreedom);
+Seed:
+if (x <= 0) {
+  return 0;
+}
+**************************************************
+Evaluations: 1189
+EstimatedTime: 1225586

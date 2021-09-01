@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.allowed=AllowedSolution.ANY_SIDE;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 160
+Faulty:
+final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+Seed:
+if (f0 == 0.0) {
+  return x0;
+}
+**************************************************
+Evaluations: 1014
+EstimatedTime: 549083

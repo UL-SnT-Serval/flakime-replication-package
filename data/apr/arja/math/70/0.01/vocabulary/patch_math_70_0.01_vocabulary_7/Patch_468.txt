@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 87
+Faulty:
+m=UnivariateRealSolverUtils.midpoint(min,max);
+Seed:
+i++;
+**************************************************
+Evaluations: 592
+EstimatedTime: 279350

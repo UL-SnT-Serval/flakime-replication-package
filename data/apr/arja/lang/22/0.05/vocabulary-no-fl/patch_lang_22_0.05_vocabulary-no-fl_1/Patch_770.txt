@@ -1,0 +1,10 @@
+1 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 757
+EstimatedTime: 1016271

@@ -1,0 +1,21 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.method=method;
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3029
+Faulty:
+return 0.0;
+Seed:
+if (x == Double.POSITIVE_INFINITY) {
+  if (y > 0.0 || 1 / y > 0.0) {
+    return 0.0;
+  }
+  if (y < 0.0 || 1 / y < 0.0) {
+    return -0.0;
+  }
+}
+**************************************************
+Evaluations: 1813
+EstimatedTime: 4660345

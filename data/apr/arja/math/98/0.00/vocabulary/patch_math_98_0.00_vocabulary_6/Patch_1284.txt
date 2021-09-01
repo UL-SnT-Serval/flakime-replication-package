@@ -1,0 +1,22 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.00/vocabulary/project/src/java/org/apache/commons/math/linear/BigMatrixImpl.java 991
+Faulty:
+final BigDecimal[] out=new BigDecimal[v.length];
+Seed:
+final BigDecimal[] out=new BigDecimal[nRows];
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/98/0.00/vocabulary/project/src/java/org/apache/commons/math/linear/BigMatrixImpl.java 993
+Faulty:
+BigDecimal sum=ZERO;
+Seed:
+if (nRows == 0) {
+  throw new IllegalArgumentException("Matrix must have at least one row.");
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.00/vocabulary/project/src/java/org/apache/commons/math/linear/RealMatrixImpl.java 779
+Faulty:
+final double[] out=new double[v.length];
+Seed:
+final double[] out=new double[nRows];
+**************************************************
+Evaluations: 1336
+EstimatedTime: 323625

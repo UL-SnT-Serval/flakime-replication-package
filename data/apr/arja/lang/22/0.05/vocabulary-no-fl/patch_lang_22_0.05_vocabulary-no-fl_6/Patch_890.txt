@@ -1,0 +1,29 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 223
+Faulty:
+denominator/=2;
+Seed:
+if (denominator == Integer.MIN_VALUE && (numerator & 1) == 0) {
+  numerator/=2;
+  denominator/=2;
+}
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 603
+Faulty:
+int t=((u & 1) == 1) ? v : -(u / 2);
+Seed:
+while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+  u/=2;
+  v/=2;
+  k++;
+}
+**************************************************
+3 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (v > 0) {
+  v=-v;
+}
+**************************************************
+Evaluations: 884
+EstimatedTime: 1021672

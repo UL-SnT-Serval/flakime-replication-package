@@ -1,0 +1,17 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 283
+Faulty:
+if (n != 0 || discarded != 0) {
+  getField().setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+  return DfpField.FLAG_INEXACT;
+}
+Seed:
+lsbthreshold*=10;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f1=fx;
+**************************************************
+Evaluations: 1836
+EstimatedTime: 1268108

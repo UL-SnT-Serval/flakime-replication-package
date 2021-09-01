@@ -1,0 +1,60 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 246
+Faulty:
+firstTime=false;
+Seed:
+for (int i=0; i < scale.length; ++i) {
+  scale[i]=scalAbsoluteTolerance + scalRelativeTolerance * FastMath.abs(y[i]);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 257
+Faulty:
+sum+=a[k - 1][l] * yDotK[l][j];
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3252
+Faulty:
+if (Double.isNaN(d) || Double.isNaN(direction)) {
+  return Double.NaN;
+}
+ else if (d == direction) {
+  return direction;
+}
+ else if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+Seed:
+if (d == direction) {
+  return direction;
+}
+ else if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3264
+Faulty:
+final long bits=Double.doubleToLongBits(d);
+Seed:
+if (Double.isNaN(d) || Double.isNaN(direction)) {
+  return Double.NaN;
+}
+ else if (d == direction) {
+  return direction;
+}
+ else if (Double.isInfinite(d)) {
+  return (d < 0) ? -Double.MAX_VALUE : Double.MAX_VALUE;
+}
+ else if (d == 0) {
+  return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+}
+**************************************************
+Evaluations: 1412
+EstimatedTime: 3421163

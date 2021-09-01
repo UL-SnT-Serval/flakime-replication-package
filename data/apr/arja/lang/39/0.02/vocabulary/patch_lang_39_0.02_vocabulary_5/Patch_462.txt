@@ -1,0 +1,21 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.02/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=0;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.02/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3635
+Faulty:
+boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+Seed:
+if (searchLength != replacementLength) {
+  throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+}
+**************************************************
+Evaluations: 444
+EstimatedTime: 142537

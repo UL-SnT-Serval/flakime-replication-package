@@ -1,0 +1,18 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u=-u;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/Validate.java 393
+Faulty:
+return chars;
+Seed:
+if (chars == null) {
+  throw new NullPointerException(String.format(message,values));
+}
+**************************************************
+Evaluations: 494
+EstimatedTime: 680112

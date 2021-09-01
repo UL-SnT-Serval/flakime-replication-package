@@ -1,0 +1,39 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 378
+Faulty:
+return x;
+Seed:
+if (x == Double.POSITIVE_INFINITY) {
+  return -Math.PI / 4.0;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 370
+Faulty:
+return exp(x) / 2.0;
+Seed:
+if (x == -1.0) {
+  return Math.PI;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+switch (method) {
+case ILLINOIS:
+  f0*=0.5;
+break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+**************************************************
+Evaluations: 1703
+EstimatedTime: 4165249

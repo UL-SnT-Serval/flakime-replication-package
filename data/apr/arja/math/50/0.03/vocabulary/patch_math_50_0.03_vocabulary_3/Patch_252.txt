@@ -1,0 +1,17 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2338
+Faulty:
+long b=inbits & 0xffffffffL;
+Seed:
+inbits|=0x0010000000000000L;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+**************************************************
+Evaluations: 311
+EstimatedTime: 545620

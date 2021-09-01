@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.20/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.20/vocabulary/project/src/main/java/org/apache/commons/math/linear/RealMatrixImpl.java 502
+Faulty:
+MatrixUtils.checkSubMatrixIndex(this,startRow,endRow,startColumn,endColumn);
+Seed:
+MatrixUtils.checkColumnIndex(this,endColumn);
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.20/vocabulary/project/src/main/java/org/apache/commons/math/linear/RealMatrixImpl.java 503
+Faulty:
+visitor.start(getRowDimension(),getColumnDimension(),startRow,endRow,startColumn,endColumn);
+Seed:
+MatrixUtils.checkRowIndex(this,endRow);
+**************************************************
+Evaluations: 1153
+EstimatedTime: 595148

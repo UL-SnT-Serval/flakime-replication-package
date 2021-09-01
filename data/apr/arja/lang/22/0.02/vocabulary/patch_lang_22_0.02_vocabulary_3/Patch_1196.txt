@@ -1,0 +1,23 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v/=2;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 613
+Faulty:
+if (t > 0) {
+  u=-t;
+}
+ else {
+  v=t;
+}
+Seed:
+if (k == 31) {
+  throw new ArithmeticException("overflow: gcd is 2^31");
+}
+**************************************************
+Evaluations: 1161
+EstimatedTime: 1508826

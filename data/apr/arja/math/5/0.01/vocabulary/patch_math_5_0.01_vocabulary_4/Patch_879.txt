@@ -1,0 +1,19 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 164
+Faulty:
+System.arraycopy(updates,0,updates,1,updates.length - 1);
+Seed:
+if (next != previous) {
+  System.arraycopy(updates,0,updates,1,updates.length - 1);
+  System.arraycopy(transformers,0,transformers,1,transformers.length - 1);
+  updates[0]=extremeT;
+  transformers[0]=next;
+}
+**************************************************
+Evaluations: 1065
+EstimatedTime: 652575

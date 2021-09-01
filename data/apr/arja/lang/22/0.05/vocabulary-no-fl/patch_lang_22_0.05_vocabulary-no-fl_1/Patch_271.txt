@@ -1,0 +1,27 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 851
+Faulty:
+return (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator());
+Seed:
+if (numerator < 0) {
+  throw new ArithmeticException("The numerator must not be negative");
+}
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+3 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 219
+Faulty:
+return ZERO;
+Seed:
+if (denominator == Integer.MIN_VALUE && (numerator & 1) == 0) {
+  numerator/=2;
+  denominator/=2;
+}
+**************************************************
+Evaluations: 283
+EstimatedTime: 412495

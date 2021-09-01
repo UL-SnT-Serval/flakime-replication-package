@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 476
+Faulty:
+return equals(ZERO) ? this : ZERO;
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 609
+Faulty:
+while ((t & 1) == 0) {
+  t/=2;
+}
+Seed:
+while ((t & 1) == 0) {
+  t/=2;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+u/=2;
+**************************************************
+Evaluations: 1285
+EstimatedTime: 2475429

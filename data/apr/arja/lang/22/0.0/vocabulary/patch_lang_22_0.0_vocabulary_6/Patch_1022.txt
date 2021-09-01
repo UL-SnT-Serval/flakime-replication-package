@@ -1,0 +1,28 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 230
+Faulty:
+numerator=-numerator;
+Seed:
+if (numerator == 0) {
+  return ZERO;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 847
+Faulty:
+if (obj instanceof Fraction == false) {
+  return false;
+}
+Seed:
+if (denominator == 0) {
+  throw new ArithmeticException("The denominator must not be zero");
+}
+**************************************************
+Evaluations: 1008
+EstimatedTime: 1462944

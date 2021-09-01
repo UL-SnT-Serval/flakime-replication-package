@@ -1,0 +1,64 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 524
+Faulty:
+if (isNaN) {
+  return NaN;
+}
+Seed:
+this.imaginary=imaginary;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/dfp/Dfp.java 1425
+Faulty:
+inc=n != 0;
+Seed:
+if (inc) {
+  int rh=1;
+  for (int i=0; i < mant.length; i++) {
+    final int r=mant[i] + rh;
+    rh=r / RADIX;
+    mant[i]=r - rh * RADIX;
+  }
+  if (rh != 0) {
+    shiftRight();
+    mant[mant.length - 1]=rh;
+  }
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+switch (allowed) {
+case ANY_SIDE:
+  return x1;
+case LEFT_SIDE:
+if (inverted) {
+  return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+**************************************************
+4 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 525
+Faulty:
+return NaN;
+Seed:
+return this.add(this.sqrt1z().multiply(I)).log().multiply(I.negate());
+**************************************************
+Evaluations: 1395
+EstimatedTime: 973460

@@ -1,0 +1,29 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/analysis/integration/gauss/LegendreRuleFactory.java 67
+Faulty:
+double b=(iMax == 1) ? 1 : previousPoints[i].doubleValue();
+Seed:
+if (numberOfPoints % 2 != 0) {
+  double pmc=1;
+  for (int j=1; j < numberOfPoints; j+=2) {
+    pmc=-j * pmc / (j + 1);
+  }
+  final double d=numberOfPoints * pmc;
+  final double w=2 / (d * d);
+  points[iMax]=0d;
+  weights[iMax]=w;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 275
+Faulty:
+return true;
+Seed:
+return false;
+**************************************************
+Evaluations: 1566
+EstimatedTime: 984044

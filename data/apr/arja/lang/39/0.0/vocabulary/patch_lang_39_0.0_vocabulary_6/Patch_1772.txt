@@ -1,0 +1,45 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3612
+Faulty:
+if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+  return text;
+}
+Seed:
+if (timeToLive < 0) {
+  throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+for (int i=0; i < searchLength; i++) {
+  if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+    continue;
+  }
+  tempIndex=text.indexOf(searchList[i]);
+  if (tempIndex == -1) {
+    noMoreMatchesForReplIndex[i]=true;
+  }
+ else {
+    if (textIndex == -1 || tempIndex < textIndex) {
+      textIndex=tempIndex;
+      replaceIndex=i;
+    }
+  }
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.0/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3640
+Faulty:
+int tempIndex=-1;
+Seed:
+if (timeToLive < 0) {
+  throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+}
+**************************************************
+Evaluations: 1693
+EstimatedTime: 319723

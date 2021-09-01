@@ -1,0 +1,24 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 478
+Faulty:
+int gcd=greatestCommonDivisor(Math.abs(numerator),denominator);
+Seed:
+toProperString="1";
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v/=2;
+**************************************************
+3 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 594
+Faulty:
+int k=0;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+Evaluations: 1457
+EstimatedTime: 2145184

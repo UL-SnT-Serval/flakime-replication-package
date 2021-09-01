@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/CharUtils.java 198
+Faulty:
+return str.charAt(0);
+Seed:
+return toCharacterObject(str.charAt(0));
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+Evaluations: 1443
+EstimatedTime: 3094339

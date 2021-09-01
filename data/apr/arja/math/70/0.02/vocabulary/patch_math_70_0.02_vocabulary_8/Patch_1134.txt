@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/stat/regression/GLSMultipleLinearRegression.java 96
+Faulty:
+RealMatrix OI=getOmegaInverse();
+Seed:
+OmegaInverse=new LUDecompositionImpl(Omega).getSolver().getInverse();
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 1402
+EstimatedTime: 1104845

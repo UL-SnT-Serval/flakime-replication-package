@@ -1,0 +1,34 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 153
+Faulty:
+return createComplex(real + rhs.getReal(),imaginary + rhs.getImaginary());
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/fraction/ProperFractionFormat.java 230
+Faulty:
+this.wholeFormat=format;
+Seed:
+if (format == null) {
+  throw new NullArgumentException(LocalizedFormats.DENOMINATOR_FORMAT);
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/distribution/ExponentialDistributionImpl.java 131
+Faulty:
+if (p < 0.0 || p > 1.0) {
+  throw new OutOfRangeException(p,0.0,1.0);
+}
+ else if (p == 1.0) {
+  ret=Double.POSITIVE_INFINITY;
+}
+ else {
+  ret=-mean * FastMath.log(1.0 - p);
+}
+Seed:
+if (p < 0 || p > 1) {
+  throw new OutOfRangeException(p,0,1);
+}
+**************************************************
+Evaluations: 1578
+EstimatedTime: 4019206

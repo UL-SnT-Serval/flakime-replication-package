@@ -1,0 +1,18 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return -1;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 616
+Faulty:
+v=t;
+Seed:
+while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+  u/=2;
+  v/=2;
+  k++;
+}
+**************************************************
+Evaluations: 1299
+EstimatedTime: 3781692

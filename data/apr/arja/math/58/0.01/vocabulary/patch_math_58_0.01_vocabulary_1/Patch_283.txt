@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 156
+Faulty:
+if (parameters == null) {
+  parameters=basicGuess(observations);
+}
+Seed:
+if (observations == null) {
+  throw new NullArgumentException(LocalizedFormats.INPUT_ARRAY);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3695
+Faulty:
+return x;
+Seed:
+if (x >= TWO_POWER_52 || x <= -TWO_POWER_52) {
+  return x;
+}
+**************************************************
+Evaluations: 315
+EstimatedTime: 325186

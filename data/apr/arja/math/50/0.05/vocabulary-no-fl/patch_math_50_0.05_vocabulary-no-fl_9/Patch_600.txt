@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/50/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 174
+Faulty:
+x0=x1;
+Seed:
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+  return x1;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/50/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f1 >= 0) {
+  return x1;
+}
+**************************************************
+Evaluations: 625
+EstimatedTime: 253518

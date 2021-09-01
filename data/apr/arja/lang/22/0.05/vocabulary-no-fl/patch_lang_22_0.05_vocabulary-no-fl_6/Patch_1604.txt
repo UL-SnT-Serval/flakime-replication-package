@@ -1,0 +1,16 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 230
+Faulty:
+numerator=-numerator;
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate numerator");
+}
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return -1;
+**************************************************
+Evaluations: 1600
+EstimatedTime: 2002302

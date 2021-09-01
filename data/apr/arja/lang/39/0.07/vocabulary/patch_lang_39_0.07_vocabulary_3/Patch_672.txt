@@ -1,0 +1,21 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.07/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+increase=Math.min(increase,text.length() / 5);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.07/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3648
+Faulty:
+continue;
+Seed:
+if (searchLength != replacementLength) {
+  throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+}
+**************************************************
+Evaluations: 664
+EstimatedTime: 151792

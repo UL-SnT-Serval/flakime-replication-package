@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 480
+Faulty:
+return this;
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 844
+Faulty:
+if (obj == this) {
+  return true;
+}
+Seed:
+if (hashCode == 0) {
+  hashCode=37 * (37 * 17 + getNumerator()) + getDenominator();
+}
+**************************************************
+Evaluations: 1612
+EstimatedTime: 1953766

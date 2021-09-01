@@ -1,0 +1,36 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/util/MathUtils.java 103
+Faulty:
+ret=addAndCheck(b,a,msg);
+Seed:
+if (b > 0) {
+  if (Long.MIN_VALUE / b <= a) {
+    ret=a * b;
+  }
+ else {
+    throw new ArithmeticException(msg);
+  }
+}
+ else {
+  ret=0;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/fraction/FractionFormat.java 277
+Faulty:
+int startIndex=pos.getIndex();
+Seed:
+this.numeratorFormat=numeratorFormat;
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/linear/RealMatrixImpl.java 779
+Faulty:
+final double[] out=new double[v.length];
+Seed:
+final double[] out=new double[nRows];
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/math/98/0.02/vocabulary/project/src/java/org/apache/commons/math/linear/BigMatrixImpl.java 991
+Faulty:
+final BigDecimal[] out=new BigDecimal[v.length];
+Seed:
+final BigDecimal[] out=new BigDecimal[nRows];
+**************************************************
+Evaluations: 1695
+EstimatedTime: 792100

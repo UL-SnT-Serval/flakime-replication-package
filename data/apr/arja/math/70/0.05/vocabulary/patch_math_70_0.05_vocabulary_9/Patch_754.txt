@@ -1,0 +1,17 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.05/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 383
+Faulty:
+double t=0;
+Seed:
+if (secRand == null) {
+  secRand=new SecureRandom();
+  secRand.setSeed(System.currentTimeMillis());
+}
+**************************************************
+Evaluations: 791
+EstimatedTime: 2377311

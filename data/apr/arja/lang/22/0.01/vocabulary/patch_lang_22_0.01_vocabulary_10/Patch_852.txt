@@ -1,0 +1,17 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/builder/ReflectionToStringBuilder.java 679
+Faulty:
+throw new IllegalArgumentException("Specified class is not a superclass of the object");
+Seed:
+while (clazz.getSuperclass() != null && clazz != this.getUpToClass()) {
+  clazz=clazz.getSuperclass();
+  this.appendFieldsIn(clazz);
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+Evaluations: 852
+EstimatedTime: 1145521

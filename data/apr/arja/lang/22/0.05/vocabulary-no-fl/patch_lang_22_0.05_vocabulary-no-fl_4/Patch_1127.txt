@@ -1,0 +1,26 @@
+1 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v=-v;
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+3 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 844
+Faulty:
+if (obj == this) {
+  return true;
+}
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: too large to negate");
+}
+**************************************************
+Evaluations: 1117
+EstimatedTime: 1648906

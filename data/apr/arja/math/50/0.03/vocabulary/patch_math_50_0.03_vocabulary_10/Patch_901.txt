@@ -1,0 +1,17 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f0=computeObjectiveValue(x0);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 356
+Faulty:
+if (result.classify() == INFINITE && this.classify() != INFINITE) {
+  getField().setIEEEFlagsBits(DfpField.FLAG_INEXACT);
+  result=dotrap(DfpField.FLAG_INEXACT,trapName,x,result);
+}
+Seed:
+x.exp=this.exp / 2;
+**************************************************
+Evaluations: 1221
+EstimatedTime: 810638

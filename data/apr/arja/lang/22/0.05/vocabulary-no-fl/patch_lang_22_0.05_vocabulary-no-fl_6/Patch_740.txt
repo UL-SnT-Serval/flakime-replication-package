@@ -1,0 +1,17 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 223
+Faulty:
+denominator/=2;
+Seed:
+if (denominator == Integer.MIN_VALUE && (numerator & 1) == 0) {
+  numerator/=2;
+  denominator/=2;
+}
+**************************************************
+2 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return -1;
+**************************************************
+Evaluations: 740
+EstimatedTime: 836218

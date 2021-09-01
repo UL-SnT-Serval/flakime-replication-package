@@ -1,0 +1,40 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1486
+Faulty:
+if (b == Long.MIN_VALUE) {
+  if (a < 0) {
+    ret=a - b;
+  }
+ else {
+    throw new ArithmeticException(msg);
+  }
+}
+ else {
+  ret=addAndCheck(a,-b,msg);
+}
+Seed:
+if (b == Long.MIN_VALUE) {
+  if (a < 0) {
+    ret=a - b;
+  }
+ else {
+    throw new ArithmeticException(msg);
+  }
+}
+ else {
+  ret=addAndCheck(a,-b,msg);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 379
+Faulty:
+double x=0;
+Seed:
+rand=new JDKRandomGenerator();
+**************************************************
+Evaluations: 1450
+EstimatedTime: 4066755

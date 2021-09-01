@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/50/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 371
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+UnivariateRealSolverUtils.verifyInterval(lower,upper);
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/50/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+x1=x;
+**************************************************
+Evaluations: 940
+EstimatedTime: 395691

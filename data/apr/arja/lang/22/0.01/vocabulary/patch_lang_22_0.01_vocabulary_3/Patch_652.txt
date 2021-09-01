@@ -1,0 +1,44 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 850
+Faulty:
+Fraction other=(Fraction)obj;
+Seed:
+if (toProperString == null) {
+  if (numerator == 0) {
+    toProperString="0";
+  }
+ else   if (numerator == denominator) {
+    toProperString="1";
+  }
+ else   if (numerator == -1 * denominator) {
+    toProperString="-1";
+  }
+ else   if ((numerator > 0 ? -numerator : numerator) < -denominator) {
+    int properNumerator=getProperNumerator();
+    if (properNumerator == 0) {
+      toProperString=Integer.toString(getProperWhole());
+    }
+ else {
+      toProperString=new StringBuilder(32).append(getProperWhole()).append(' ').append(properNumerator).append('/').append(getDenominator()).toString();
+    }
+  }
+ else {
+    toProperString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+  }
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/NumberUtils.java 181
+Faulty:
+return Long.parseLong(str);
+Seed:
+if (StringUtils.isBlank(str)) {
+  throw new NumberFormatException("A blank string is not a valid number");
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v=-v;
+**************************************************
+Evaluations: 683
+EstimatedTime: 803314

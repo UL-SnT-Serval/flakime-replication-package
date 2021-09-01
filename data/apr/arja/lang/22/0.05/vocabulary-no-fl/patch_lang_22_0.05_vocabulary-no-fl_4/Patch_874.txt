@@ -1,0 +1,37 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v=-v;
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 476
+Faulty:
+return equals(ZERO) ? this : ZERO;
+Seed:
+if (numerator < 0) {
+  return new Fraction(-denominator,-numerator);
+}
+ else {
+  return new Fraction(denominator,numerator);
+}
+**************************************************
+3 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v/=2;
+**************************************************
+4 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 475
+Faulty:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+Seed:
+if (numerator == 0) {
+  return equals(ZERO) ? this : ZERO;
+}
+**************************************************
+Evaluations: 869
+EstimatedTime: 1320255

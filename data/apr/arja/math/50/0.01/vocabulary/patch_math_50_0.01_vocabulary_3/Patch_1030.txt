@@ -1,0 +1,22 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 977
+Faulty:
+double real2=2.0 * real;
+Seed:
+if (real == 0.0 && imaginary == 0.0) {
+  return createComplex(0.0,0.0);
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+x0=x1;
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+inverted=!inverted;
+**************************************************
+Evaluations: 1172
+EstimatedTime: 1709563

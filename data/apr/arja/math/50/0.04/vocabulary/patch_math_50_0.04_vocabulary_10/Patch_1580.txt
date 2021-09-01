@@ -1,0 +1,25 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/genetics/RandomKey.java 263
+Faulty:
+for (int i=0; i < l; i++) {
+  int index=origDataCopy.indexOf(permutedData.get(i));
+  if (index == -1) {
+    throw new IllegalArgumentException("originalData and permutedData must contain the same objects.");
+  }
+  res[index]=(double)i / l;
+  origDataCopy.set(index,null);
+}
+Seed:
+if (originalData.size() != permutedData.size()) {
+  throw new IllegalArgumentException("originalData and permutedData must have same length");
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+Evaluations: 1767
+EstimatedTime: 4344111

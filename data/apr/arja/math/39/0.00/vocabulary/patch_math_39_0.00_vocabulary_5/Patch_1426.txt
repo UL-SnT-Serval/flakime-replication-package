@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/DormandPrince853StepInterpolator.java 302
+Faulty:
+vectorsInitialized=false;
+Seed:
+for (int k=0; k < v.length; ++k) {
+  v[k]=new double[dimension];
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/39/0.00/vocabulary/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 259
+Faulty:
+yTmp[j]=y[j] + stepSize * sum;
+Seed:
+if ((forward && (stepStart + stepSize > t)) || ((!forward) && (stepStart + stepSize < t))) {
+  stepSize=t - stepStart;
+}
+**************************************************
+Evaluations: 1530
+EstimatedTime: 3856304

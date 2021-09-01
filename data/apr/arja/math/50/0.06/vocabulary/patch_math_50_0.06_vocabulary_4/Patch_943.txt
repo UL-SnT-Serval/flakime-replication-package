@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f0=computeObjectiveValue(x0);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/distribution/FDistributionImpl.java 103
+Faulty:
+final double logx=FastMath.log(x);
+Seed:
+if (denominatorDegreesOfFreedom <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.DEGREES_OF_FREEDOM,denominatorDegreesOfFreedom);
+}
+**************************************************
+Evaluations: 1084
+EstimatedTime: 945984

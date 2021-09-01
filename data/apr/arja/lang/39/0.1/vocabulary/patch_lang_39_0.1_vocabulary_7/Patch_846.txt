@@ -1,0 +1,21 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.1/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+textIndex=tempIndex;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.1/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3650
+Faulty:
+tempIndex=text.indexOf(searchList[i]);
+Seed:
+if (timeToLive < 0) {
+  throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+}
+**************************************************
+Evaluations: 895
+EstimatedTime: 1485177

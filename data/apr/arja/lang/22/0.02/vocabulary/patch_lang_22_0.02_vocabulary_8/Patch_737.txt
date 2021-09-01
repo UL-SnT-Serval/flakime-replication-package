@@ -1,0 +1,27 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/ClassUtils.java 293
+Faulty:
+while (superclass != null) {
+  classes.add(superclass);
+  superclass=superclass.getSuperclass();
+}
+Seed:
+if (cls == null) {
+  return null;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u/=2;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 591
+Faulty:
+u=-u;
+Seed:
+v=-v;
+**************************************************
+Evaluations: 750
+EstimatedTime: 1209386

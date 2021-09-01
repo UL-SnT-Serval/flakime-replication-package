@@ -1,0 +1,16 @@
+1 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 851
+Faulty:
+return (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator());
+Seed:
+toProperString=Integer.toString(getProperWhole());
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+Evaluations: 676
+EstimatedTime: 786730

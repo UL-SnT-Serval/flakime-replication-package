@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 103
+Faulty:
+double upperBound=getDomainUpperBound(p);
+Seed:
+if (p == 0) {
+  return Double.NEGATIVE_INFINITY;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+Evaluations: 1596
+EstimatedTime: 1637213

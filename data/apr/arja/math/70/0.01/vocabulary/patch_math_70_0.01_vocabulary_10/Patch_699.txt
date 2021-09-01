@@ -1,0 +1,44 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 156
+Faulty:
+if (a <= Long.MAX_VALUE - b) {
+  ret=a + b;
+}
+ else {
+  throw new ArithmeticException(msg);
+}
+Seed:
+if (a > b) {
+  ret=addAndCheck(b,a,msg);
+}
+ else {
+  if (a < 0) {
+    if (b < 0) {
+      if (Long.MIN_VALUE - b <= a) {
+        ret=a + b;
+      }
+ else {
+        throw new ArithmeticException(msg);
+      }
+    }
+ else {
+      ret=a + b;
+    }
+  }
+ else {
+    if (a <= Long.MAX_VALUE - b) {
+      ret=a + b;
+    }
+ else {
+      throw new ArithmeticException(msg);
+    }
+  }
+}
+**************************************************
+Evaluations: 872
+EstimatedTime: 1425538

@@ -1,0 +1,33 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.06/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 1502
+Faulty:
+if ((str == null) || (searchStrs == null)) {
+  return -1;
+}
+Seed:
+str=strip(str,null);
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.06/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+if (textIndex == -1) {
+  return text;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.06/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3627
+Faulty:
+if (searchLength != replacementLength) {
+  throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+}
+Seed:
+if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+  return text;
+}
+**************************************************
+Evaluations: 950
+EstimatedTime: 242661

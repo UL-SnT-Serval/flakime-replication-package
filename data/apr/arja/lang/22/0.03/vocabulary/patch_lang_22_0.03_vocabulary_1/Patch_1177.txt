@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/StringEscapeUtils.java 116
+Faulty:
+out.write(input.toString());
+Seed:
+if (index != 0) {
+  throw new IllegalStateException("CsvEscaper should never reach the [1] index");
+}
+**************************************************
+Evaluations: 1204
+EstimatedTime: 1407264

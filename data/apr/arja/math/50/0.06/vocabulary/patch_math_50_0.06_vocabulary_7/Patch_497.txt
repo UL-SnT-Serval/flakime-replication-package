@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/genetics/RandomKey.java 256
+Faulty:
+throw new IllegalArgumentException("originalData and permutedData must have same length");
+Seed:
+if (originalData.size() != permutedData.size()) {
+  throw new IllegalArgumentException("originalData and permutedData must have same length");
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.allowed=AllowedSolution.ANY_SIDE;
+**************************************************
+Evaluations: 579
+EstimatedTime: 562720

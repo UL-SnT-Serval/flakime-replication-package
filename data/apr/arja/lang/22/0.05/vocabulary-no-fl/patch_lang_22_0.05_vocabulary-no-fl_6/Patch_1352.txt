@@ -1,0 +1,16 @@
+1 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 482
+Faulty:
+return Fraction.getFraction(numerator / gcd,denominator / gcd);
+Seed:
+return Fraction.getFraction(numerator / gcd,denominator / gcd);
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+Evaluations: 1341
+EstimatedTime: 1665557

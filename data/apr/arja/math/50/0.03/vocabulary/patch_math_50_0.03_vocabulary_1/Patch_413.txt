@@ -1,0 +1,28 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 340
+Faulty:
+inc=inc.divide(power10(getDecimalDigits()));
+Seed:
+switch (x.mant[mant.length - 1] / 2000) {
+case 0:
+  x.mant[mant.length - 1]=x.mant[mant.length - 1] / 2 + 1;
+break;
+case 2:
+x.mant[mant.length - 1]=1500;
+break;
+case 3:
+x.mant[mant.length - 1]=2200;
+break;
+default :
+x.mant[mant.length - 1]=3000;
+}
+**************************************************
+Evaluations: 540
+EstimatedTime: 244028

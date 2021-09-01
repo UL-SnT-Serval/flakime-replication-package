@@ -1,0 +1,18 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v/=2;
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 223
+Faulty:
+numerator/=2;
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: too large to negate");
+}
+**************************************************
+Evaluations: 949
+EstimatedTime: 1349472

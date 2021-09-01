@@ -1,0 +1,27 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.04/vocabulary/project/src/main/java/org/apache/commons/math/optimization/BaseMultiStartMultivariateRealOptimizer.java 180
+Faulty:
+Arrays.sort(optima,new Comparator<RealPointValuePair>(){
+  public int compare(  final RealPointValuePair o1,  final RealPointValuePair o2){
+    if (o1 == null) {
+      return (o2 == null) ? 0 : 1;
+    }
+ else     if (o2 == null) {
+      return -1;
+    }
+    final double v1=o1.getValue();
+    final double v2=o2.getValue();
+    return (goal == GoalType.MINIMIZE) ? Double.compare(v1,v2) : Double.compare(v2,v1);
+  }
+}
+);
+Seed:
+totalEvaluations=0;
+**************************************************
+Evaluations: 1023
+EstimatedTime: 1633965

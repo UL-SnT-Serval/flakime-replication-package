@@ -1,0 +1,22 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3712
+Faulty:
+return Float.intBitsToFloat(sign | ((bits & 0x7fffffff) - 1));
+Seed:
+if (f == direction) {
+  return (float)direction;
+}
+ else if (Float.isInfinite(f)) {
+  return (f < 0f) ? -Float.MAX_VALUE : Float.MAX_VALUE;
+}
+ else if (f == 0f) {
+  return (direction < 0) ? -Float.MIN_VALUE : Float.MIN_VALUE;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+incrementEvaluationCount();
+**************************************************
+Evaluations: 1191
+EstimatedTime: 1061173

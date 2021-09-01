@@ -1,0 +1,22 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2307
+Faulty:
+long inbits=Double.doubleToLongBits(x);
+Seed:
+FACT[0]=1.0;
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+f0=f1;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 2735
+Faulty:
+reducePayneHanek(xa,reduceResults);
+Seed:
+if (x * x == 1.0) {
+  return Double.NaN;
+}
+**************************************************
+Evaluations: 214
+EstimatedTime: 374597

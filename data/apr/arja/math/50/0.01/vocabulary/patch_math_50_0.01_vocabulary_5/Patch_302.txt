@@ -1,0 +1,47 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (fx == 0.0) {
+  return x;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 239
+Faulty:
+return x1;
+Seed:
+f0*=0.5;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1493
+Faulty:
+if (x == -1) {
+  return x / 0.0;
+}
+Seed:
+if (x == 0.0) {
+  return x;
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1507
+Faulty:
+final double lores=log(xpa,hiPrec);
+Seed:
+if (x != x) {
+  return x;
+}
+**************************************************
+5 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 1508
+Faulty:
+if (Double.isInfinite(lores)) {
+  return lores;
+}
+Seed:
+if (x == Double.POSITIVE_INFINITY) {
+  return Math.PI / 4.0;
+}
+**************************************************
+Evaluations: 297
+EstimatedTime: 770200

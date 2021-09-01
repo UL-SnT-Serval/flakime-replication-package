@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 216
+Faulty:
+throw new ArithmeticException("The denominator must not be zero");
+Seed:
+if (numerator == 0) {
+  throw new ArithmeticException("Unable to invert zero.");
+}
+**************************************************
+Evaluations: 505
+EstimatedTime: 766295

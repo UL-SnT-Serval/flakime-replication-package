@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/stat/inference/WilcoxonSignedRankTestImpl.java 121
+Faulty:
+if (z.length == 0) {
+  throw new IllegalArgumentException("z must contain at least one element");
+}
+Seed:
+if (z == null) {
+  throw new IllegalArgumentException("z must not be null");
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+Evaluations: 1836
+EstimatedTime: 3148304

@@ -1,0 +1,14 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.15/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 712
+Faulty:
+return Complex.NaN;
+Seed:
+return this.add(Complex.I).divide(Complex.I.subtract(this)).log().multiply(Complex.I.divide(createComplex(2.0,0.0)));
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.15/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+this.f=f;
+**************************************************
+Evaluations: 1663
+EstimatedTime: 606414

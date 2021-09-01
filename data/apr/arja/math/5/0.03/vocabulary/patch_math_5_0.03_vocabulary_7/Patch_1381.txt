@@ -1,0 +1,29 @@
+1 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 597
+Faulty:
+return sqrt1z().add(this.multiply(I)).log().multiply(I.negate());
+Seed:
+if (real == 0.0 && imaginary == 0.0) {
+  return NaN;
+}
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunction.java 201
+Faulty:
+for (int i=0; i < lowLength; ++i) {
+  newCoefficients[i]=coefficients[i] - p.coefficients[i];
+}
+Seed:
+for (int i=0; i < newCoefficients.length; ++i) {
+  newCoefficients[i]=0.0;
+  for (int j=FastMath.max(0,i + 1 - p.coefficients.length); j < FastMath.min(coefficients.length,i + 1); ++j) {
+    newCoefficients[i]+=coefficients[j] * p.coefficients[i - j];
+  }
+}
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1517
+EstimatedTime: 1150269

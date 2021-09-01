@@ -1,0 +1,16 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/stat/descriptive/AbstractStorelessUnivariateStatistic.java 171
+Faulty:
+return false;
+Seed:
+if (object instanceof SummaryStatistics == false) {
+  return false;
+}
+**************************************************
+Evaluations: 784
+EstimatedTime: 159106

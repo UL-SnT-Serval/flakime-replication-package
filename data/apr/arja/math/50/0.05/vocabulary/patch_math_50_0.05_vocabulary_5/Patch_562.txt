@@ -1,0 +1,37 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+inverted=!inverted;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
+Faulty:
+f0=computeObjectiveValue(x0);
+Seed:
+x1=x;
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 286
+Faulty:
+return DfpField.FLAG_INEXACT;
+Seed:
+if (inc) {
+  int rh=lsbthreshold;
+  for (int i=lsd; i < mant.length; i++) {
+    final int r=mant[i] + rh;
+    rh=r / RADIX;
+    mant[i]=r % RADIX;
+  }
+  if (rh != 0) {
+    shiftRight();
+    mant[mant.length - 1]=rh;
+  }
+}
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.05/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 210
+Faulty:
+mant[i]=0;
+Seed:
+nans=FINITE;
+**************************************************
+Evaluations: 630
+EstimatedTime: 600108

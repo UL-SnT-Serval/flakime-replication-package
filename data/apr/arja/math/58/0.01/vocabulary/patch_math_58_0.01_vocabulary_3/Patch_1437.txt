@@ -1,0 +1,30 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 199
+Faulty:
+if (points[i].getY() > points[maxYIdx].getY()) {
+  maxYIdx=i;
+}
+Seed:
+if (observations == null) {
+  throw new NullArgumentException(LocalizedFormats.INPUT_ARRAY);
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 261
+Faulty:
+for (int i=startIdx; (idxStep < 0) ? (i + idxStep >= 0) : (i + idxStep < points.length); i+=idxStep) {
+  if (isBetween(y,points[i].getY(),points[i + idxStep].getY())) {
+    return (idxStep < 0) ? new WeightedObservedPoint[]{points[i + idxStep],points[i]} : new WeightedObservedPoint[]{points[i],points[i + idxStep]};
+  }
+}
+Seed:
+if (idxStep == 0) {
+  throw new ZeroException();
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.01/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+Evaluations: 1497
+EstimatedTime: 1424758

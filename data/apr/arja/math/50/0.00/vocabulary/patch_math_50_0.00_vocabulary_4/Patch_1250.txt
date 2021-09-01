@@ -1,0 +1,26 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 138
+Faulty:
+if (f0 == 0.0) {
+  return x0;
+}
+Seed:
+if (f1 == 0.0) {
+  return x1;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.allowed=AllowedSolution.ANY_SIDE;
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 305
+Faulty:
+if (function == null) {
+  throw new NullArgumentException(LocalizedFormats.FUNCTION);
+}
+Seed:
+UnivariateRealSolverUtils.verifyInterval(lower,upper);
+**************************************************
+Evaluations: 1263
+EstimatedTime: 734273

@@ -1,0 +1,27 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.01/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 592
+Faulty:
+final RandomGenerator generator=getRan();
+Seed:
+if (rand == null) {
+  rand=new JDKRandomGenerator();
+  rand.setSeed(System.currentTimeMillis());
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.01/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 811
+Faulty:
+rand=new JDKRandomGenerator();
+Seed:
+if (rand == null) {
+  rand=new JDKRandomGenerator();
+}
+**************************************************
+Evaluations: 1075
+EstimatedTime: 3376016

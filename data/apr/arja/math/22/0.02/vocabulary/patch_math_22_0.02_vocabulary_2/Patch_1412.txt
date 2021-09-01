@@ -1,0 +1,54 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/dfp/DfpDec.java 264
+Faulty:
+if (rh != 0) {
+  shiftRight();
+  mant[mant.length - 1]=rh;
+}
+Seed:
+getField().setIEEEFlagsBits(DfpField.FLAG_OVERFLOW);
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 275
+Faulty:
+return true;
+Seed:
+return false;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/dfp/Dfp.java 2348
+Faulty:
+if (up) {
+  inc=newInstance(getOne());
+  inc.exp=this.exp - mant.length + 1;
+  inc.sign=this.sign;
+  if (this.equals(getZero())) {
+    inc.exp=MIN_EXP - mant.length;
+  }
+  result=add(inc);
+}
+ else {
+  inc=newInstance(getOne());
+  inc.exp=this.exp;
+  inc.sign=this.sign;
+  if (this.equals(inc)) {
+    inc.exp=this.exp - mant.length;
+  }
+ else {
+    inc.exp=this.exp - mant.length + 1;
+  }
+  if (this.equals(getZero())) {
+    inc.exp=MIN_EXP - mant.length;
+  }
+  result=this.subtract(inc);
+}
+Seed:
+if (compare(this,x) == 0) {
+  return newInstance(x);
+}
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+Evaluations: 1728
+EstimatedTime: 821432

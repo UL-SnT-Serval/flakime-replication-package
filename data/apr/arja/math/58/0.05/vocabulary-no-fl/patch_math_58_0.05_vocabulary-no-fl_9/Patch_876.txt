@@ -1,0 +1,20 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 183
+Faulty:
+fwhmApprox=points[points.length - 1].getX() - points[0].getX();
+Seed:
+params[1]=points[maxYIdx].getX();
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/58/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 291
+Faulty:
+return (value >= boundary1 && value <= boundary2) || (value >= boundary2 && value <= boundary1);
+Seed:
+return (value >= boundary1 && value <= boundary2) || (value >= boundary2 && value <= boundary1);
+**************************************************
+Evaluations: 931
+EstimatedTime: 323611

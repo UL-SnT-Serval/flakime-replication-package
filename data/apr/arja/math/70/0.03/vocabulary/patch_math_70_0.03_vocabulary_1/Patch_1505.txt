@@ -1,0 +1,29 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 366
+Faulty:
+final double logLambda=Math.log(lambda);
+Seed:
+secRand=new SecureRandom();
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 66
+Faulty:
+return solve(f,min,max);
+Seed:
+verifyInterval(min,max);
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+4 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.03/vocabulary/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 368
+Faulty:
+final long y2=lambdaFractional < Double.MIN_VALUE ? 0 : nextPoisson(lambdaFractional);
+Seed:
+if (rand == null) {
+  rand=new JDKRandomGenerator();
+  rand.setSeed(System.currentTimeMillis());
+}
+**************************************************
+Evaluations: 1830
+EstimatedTime: 5158157

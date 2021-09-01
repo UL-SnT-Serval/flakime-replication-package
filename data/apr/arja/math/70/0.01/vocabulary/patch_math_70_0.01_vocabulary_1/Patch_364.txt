@@ -1,0 +1,22 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java 85
+Faulty:
+return solver.solve(f,x0,x1);
+Seed:
+return solver.solve(f,x0,x1);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/special/Gamma.java 168
+Faulty:
+ret=0.0;
+Seed:
+if (x > 0 && x <= S_LIMIT) {
+  return -GAMMA - 1 / x;
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 455
+EstimatedTime: 296158

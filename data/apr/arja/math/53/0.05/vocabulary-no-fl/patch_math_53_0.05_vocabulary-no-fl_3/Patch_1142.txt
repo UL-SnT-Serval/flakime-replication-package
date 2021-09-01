@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 104
+Faulty:
+double[] bracket=null;
+Seed:
+if (p == 0) {
+  return -1;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 175
+Faulty:
+out[i]=sample();
+Seed:
+if (sampleSize <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.NUMBER_OF_SAMPLES,sampleSize);
+}
+**************************************************
+Evaluations: 1267
+EstimatedTime: 1280650

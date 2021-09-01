@@ -1,0 +1,27 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java 287
+Faulty:
+if (p < .5) {
+  ret=mean - standardDeviation;
+}
+ else if (p > .5) {
+  ret=mean + standardDeviation;
+}
+ else {
+  ret=mean;
+}
+Seed:
+if (p < .5) {
+  ret=-Double.MAX_VALUE;
+}
+ else {
+  ret=mean;
+}
+**************************************************
+Evaluations: 1409
+EstimatedTime: 1110965

@@ -1,0 +1,28 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/function/Gaussian.java 183
+Faulty:
+throw new NotStrictlyPositiveException(param[2]);
+Seed:
+if (param == null) {
+  throw new NullArgumentException();
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 198
+Faulty:
+for (int i=1; i < points.length; i++) {
+  if (points[i].getY() > points[maxYIdx].getY()) {
+    maxYIdx=i;
+  }
+}
+Seed:
+if (observations.length < 4) {
+  throw new NumberIsTooSmallException(LocalizedFormats.INSUFFICIENT_OBSERVED_POINTS_IN_SAMPLE,observations.length,4,true);
+}
+**************************************************
+Evaluations: 1321
+EstimatedTime: 1060276

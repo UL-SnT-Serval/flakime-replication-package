@@ -1,0 +1,41 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+switch (method) {
+case ILLINOIS:
+  f0*=0.5;
+break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/special/Gamma.java 89
+Faulty:
+ret=Double.NaN;
+Seed:
+if (Double.isNaN(x) || (x <= 0.0)) {
+  ret=Double.NaN;
+}
+ else {
+  double g=607.0 / 128.0;
+  double sum=0.0;
+  for (int i=LANCZOS.length - 1; i > 0; --i) {
+    sum=sum + (LANCZOS[i] / (x + i));
+  }
+  sum=sum + LANCZOS[0];
+  double tmp=x + g + .5;
+  ret=((x + .5) * FastMath.log(tmp)) - tmp + HALF_LOG_2_PI + FastMath.log(sum / x);
+}
+**************************************************
+Evaluations: 576
+EstimatedTime: 1465437

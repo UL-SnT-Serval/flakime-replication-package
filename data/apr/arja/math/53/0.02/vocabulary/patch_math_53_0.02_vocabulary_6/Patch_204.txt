@@ -1,0 +1,24 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 153
+Faulty:
+return createComplex(real + rhs.getReal(),imaginary + rhs.getImaginary());
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/distribution/CauchyDistributionImpl.java 118
+Faulty:
+final double dev=x - median;
+Seed:
+if (scale <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.SCALE,scale);
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/53/0.02/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 664
+Faulty:
+return NaN;
+Seed:
+return createComplex(1.0,0.0).subtract(this.multiply(this)).sqrt();
+**************************************************
+Evaluations: 289
+EstimatedTime: 642414

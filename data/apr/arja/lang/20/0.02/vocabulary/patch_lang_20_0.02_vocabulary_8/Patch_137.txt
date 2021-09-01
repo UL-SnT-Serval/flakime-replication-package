@@ -1,0 +1,30 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/text/StrSubstitutor.java 598
+Faulty:
+buf.deleteCharAt(pos - 1);
+Seed:
+if (prefixMatcher == null) {
+  throw new IllegalArgumentException("Variable prefix matcher must not be null!");
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 6002
+Faulty:
+if (strs == null || strs.length == 0) {
+  return EMPTY;
+}
+Seed:
+sunAvailable=false;
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3298
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);
+Seed:
+StringBuilder buf=new StringBuilder(256);
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/20/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/StringUtils.java 3383
+Faulty:
+StringBuilder buf=new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());
+Seed:
+StringBuilder buf=new StringBuilder(32);
+**************************************************
+Evaluations: 140
+EstimatedTime: 50420

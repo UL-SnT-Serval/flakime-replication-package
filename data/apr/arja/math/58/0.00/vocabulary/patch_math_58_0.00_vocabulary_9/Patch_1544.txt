@@ -1,0 +1,28 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 273
+Faulty:
+for (final WeightedObservedPoint point : points) {
+  minY=Math.min(minY,point.getY());
+  maxY=Math.max(maxY,point.getY());
+}
+Seed:
+for (final WeightedObservedPoint point : points) {
+  minY=Math.min(minY,point.getY());
+  maxY=Math.max(maxY,point.getY());
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.00/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 169
+Faulty:
+Arrays.sort(points,createWeightedObservedPointComparator());
+Seed:
+if (observations == null) {
+  throw new NullArgumentException(LocalizedFormats.INPUT_ARRAY);
+}
+**************************************************
+Evaluations: 1591
+EstimatedTime: 1228660

@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 851
+Faulty:
+return (getNumerator() == other.getNumerator() && getDenominator() == other.getDenominator());
+Seed:
+if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate");
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return 1;
+**************************************************
+Evaluations: 1006
+EstimatedTime: 1333969

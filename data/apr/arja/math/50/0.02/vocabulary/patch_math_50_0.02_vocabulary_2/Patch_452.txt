@@ -1,0 +1,26 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (fx == 0.0) {
+  return x;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 239
+Faulty:
+return x1;
+Seed:
+x0=x1;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3541
+Faulty:
+if (n > 276) {
+  return (f > 0) ? Float.POSITIVE_INFINITY : Float.NEGATIVE_INFINITY;
+}
+Seed:
+if (Float.isNaN(f) || Float.isInfinite(f) || (f == 0f)) {
+  return f;
+}
+**************************************************
+Evaluations: 433
+EstimatedTime: 477073

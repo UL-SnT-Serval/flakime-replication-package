@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 844
+Faulty:
+if (obj == this) {
+  return true;
+}
+Seed:
+if (numerator == Integer.MIN_VALUE || denominator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: can't negate");
+}
+**************************************************
+Evaluations: 289
+EstimatedTime: 410084

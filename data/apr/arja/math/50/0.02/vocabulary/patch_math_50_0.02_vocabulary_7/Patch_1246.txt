@@ -1,0 +1,40 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f1 * fx < 0) {
+  x0=x1;
+  f0=f1;
+  inverted=!inverted;
+}
+ else {
+switch (method) {
+case ILLINOIS:
+    f0*=0.5;
+  break;
+case PEGASUS:
+f0*=f1 / (f1 + fx);
+break;
+case REGULA_FALSI:
+if (x == x1) {
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+f0=computeObjectiveValue(x0);
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.02/vocabulary/project/src/main/java/org/apache/commons/math/linear/BlockFieldMatrix.java 1297
+Faulty:
+while (p < pEnd - 3) {
+  sum=sum.add(block[k].multiply(v[p])).add(block[k + jWidth].multiply(v[p + 1])).add(block[k + jWidth2].multiply(v[p + 2])).add(block[k + jWidth3].multiply(v[p + 3]));
+  k+=jWidth4;
+  p+=4;
+}
+Seed:
+k++;
+**************************************************
+Evaluations: 1412
+EstimatedTime: 969925

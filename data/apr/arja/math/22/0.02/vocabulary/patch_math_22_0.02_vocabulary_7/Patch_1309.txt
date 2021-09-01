@@ -1,0 +1,24 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/linear/OpenMapRealVector.java 428
+Faulty:
+delta=iter.value() - v.getEntry(key);
+Seed:
+if (isNaN()) {
+  return 9;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/22/0.02/vocabulary/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 131
+Faulty:
+final double logx=FastMath.log(x);
+Seed:
+if (x <= 0) {
+  return 0;
+}
+**************************************************
+Evaluations: 1718
+EstimatedTime: 716071

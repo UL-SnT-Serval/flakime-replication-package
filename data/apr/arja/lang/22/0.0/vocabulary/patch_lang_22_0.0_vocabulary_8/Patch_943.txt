@@ -1,0 +1,28 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 844
+Faulty:
+if (obj == this) {
+  return true;
+}
+Seed:
+if (toString == null) {
+  toString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 155
+Faulty:
+numerator=-numerator;
+Seed:
+if (numerator == Integer.MIN_VALUE) {
+  throw new ArithmeticException("overflow: too large to negate");
+}
+**************************************************
+Evaluations: 934
+EstimatedTime: 1085041

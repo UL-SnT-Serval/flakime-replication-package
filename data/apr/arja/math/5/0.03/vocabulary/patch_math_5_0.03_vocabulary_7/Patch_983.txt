@@ -1,0 +1,37 @@
+1 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/dfp/DfpMath.java 588
+Faulty:
+return x.newInstance(Dfp.copysign(y,one));
+Seed:
+if (x.isNaN() || y.isNaN()) {
+  x.getField().setIEEEFlagsBits(DfpField.FLAG_INVALID);
+  return x.dotrap(DfpField.FLAG_INVALID,POW_TRAP,x,x.newInstance((byte)1,Dfp.QNAN));
+}
+**************************************************
+2 InsertBefore /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/analysis/polynomials/PolynomialFunction.java 204
+Faulty:
+if (coefficients.length < p.coefficients.length) {
+  for (int i=lowLength; i < highLength; ++i) {
+    newCoefficients[i]=-p.coefficients[i];
+  }
+}
+ else {
+  System.arraycopy(coefficients,lowLength,newCoefficients,lowLength,highLength - lowLength);
+}
+Seed:
+if (coefficients.length < p.coefficients.length) {
+  for (int i=lowLength; i < highLength; ++i) {
+    newCoefficients[i]=-p.coefficients[i];
+  }
+}
+ else {
+  System.arraycopy(coefficients,lowLength,newCoefficients,lowLength,highLength - lowLength);
+}
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.03/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1096
+EstimatedTime: 822142

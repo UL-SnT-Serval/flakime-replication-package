@@ -1,0 +1,14 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/time/DurationFormatUtils.java 321
+Faulty:
+days+=start.getActualMaximum(Calendar.DAY_OF_MONTH);
+Seed:
+milliseconds+=1000 * seconds;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.05/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+v/=2;
+**************************************************
+Evaluations: 355
+EstimatedTime: 706175

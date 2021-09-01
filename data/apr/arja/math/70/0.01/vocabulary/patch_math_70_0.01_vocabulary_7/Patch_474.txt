@@ -1,0 +1,40 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 711
+Faulty:
+if (isNaN()) {
+  return Complex.NaN;
+}
+Seed:
+isInfinite=!isNaN && (Double.isInfinite(real) || Double.isInfinite(imaginary));
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 712
+Faulty:
+return Complex.NaN;
+Seed:
+isNaN=Double.isNaN(real) || Double.isNaN(imaginary);
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+4 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 80
+Faulty:
+verifyInterval(min,max);
+Seed:
+verifyBracketing(min,max,f);
+**************************************************
+5 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 85
+Faulty:
+int i=0;
+Seed:
+setResult(max,0);
+**************************************************
+6 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 87
+Faulty:
+m=UnivariateRealSolverUtils.midpoint(min,max);
+Seed:
+resultComputed=true;
+**************************************************
+Evaluations: 598
+EstimatedTime: 282246

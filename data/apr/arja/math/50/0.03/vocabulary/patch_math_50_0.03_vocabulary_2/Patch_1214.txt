@@ -1,0 +1,36 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (inverted) {
+  return x1;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3698
+Faulty:
+return (float)direction;
+Seed:
+if (Double.isNaN(f) || Double.isNaN(direction)) {
+  return Float.NaN;
+}
+ else if (f == direction) {
+  return (float)direction;
+}
+ else if (Float.isInfinite(f)) {
+  return (f < 0f) ? -Float.MAX_VALUE : Float.MAX_VALUE;
+}
+ else if (f == 0f) {
+  return (direction < 0) ? -Float.MIN_VALUE : Float.MIN_VALUE;
+}
+**************************************************
+Evaluations: 1258
+EstimatedTime: 625257

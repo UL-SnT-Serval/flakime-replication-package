@@ -1,0 +1,16 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f0=f1;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.07/vocabulary/project/src/main/java/org/apache/commons/math/distribution/WeibullDistributionImpl.java 137
+Faulty:
+final double xscalepowshape=xscalepow * xscale;
+Seed:
+if (scale <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.SCALE,scale);
+}
+**************************************************
+Evaluations: 941
+EstimatedTime: 785700

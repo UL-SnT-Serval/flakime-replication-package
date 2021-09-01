@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/dfp/BracketingNthOrderBrentSolverDFP.java 158
+Faulty:
+return solve(maxEval,f,min,max,min.add(max).divide(2),allowedSolution);
+Seed:
+if (maximalOrder < 2) {
+  throw new NumberIsTooSmallException(maximalOrder,2,true);
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/stat/inference/WilcoxonSignedRankTestImpl.java 121
+Faulty:
+if (z.length == 0) {
+  throw new IllegalArgumentException("z must contain at least one element");
+}
+Seed:
+naturalRanking=new NaturalRanking(NaNStrategy.FIXED,TiesStrategy.AVERAGE);
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.06/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (!inverted) {
+  return x1;
+}
+**************************************************
+Evaluations: 998
+EstimatedTime: 1661195

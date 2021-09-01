@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.02/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 1661
+Faulty:
+int k2p=k;
+Seed:
+long k2p=k;
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/58/0.02/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 274
+Faulty:
+minY=Math.min(minY,point.getY());
+Seed:
+Arrays.sort(points,createWeightedObservedPointComparator());
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/math/58/0.02/vocabulary/project/src/main/java/org/apache/commons/math/optimization/fitting/GaussianFitter.java 121
+Faulty:
+return fit(new Gaussian.Parametric(),guess);
+Seed:
+return fit((new ParameterGuesser(getObservations())).guess());
+**************************************************
+Evaluations: 1051
+EstimatedTime: 1916250

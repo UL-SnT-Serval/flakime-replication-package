@@ -1,0 +1,27 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/ClassUtils.java 294
+Faulty:
+classes.add(superclass);
+Seed:
+for (Class<?> primitiveClass : primitiveWrapperMap.keySet()) {
+  Class<?> wrapperClass=primitiveWrapperMap.get(primitiveClass);
+  if (!primitiveClass.equals(wrapperClass)) {
+    wrapperPrimitiveMap.put(wrapperClass,primitiveClass);
+  }
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+throw new ArithmeticException("overflow: numerator too large after multiply");
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u/=2;
+**************************************************
+Evaluations: 1361
+EstimatedTime: 2206794

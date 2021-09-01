@@ -1,0 +1,26 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 478
+Faulty:
+int gcd=greatestCommonDivisor(Math.abs(numerator),denominator);
+Seed:
+if (numerator == 0) {
+  throw new ArithmeticException("Unable to invert zero.");
+}
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 623
+Faulty:
+return -u * (1 << k);
+Seed:
+return -u * (1 << k);
+**************************************************
+Evaluations: 1464
+EstimatedTime: 1807138

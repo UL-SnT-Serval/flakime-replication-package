@@ -1,0 +1,16 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/distribution/AbstractDistribution.java 66
+Faulty:
+return cumulativeProbability(x1) - cumulativeProbability(x0);
+Seed:
+if (x0 > x1) {
+  throw MathRuntimeException.createIllegalArgumentException("lower endpoint ({0}) must be less than or equal to upper endpoint ({1})",x0,x1);
+}
+**************************************************
+Evaluations: 1730
+EstimatedTime: 507276

@@ -1,0 +1,18 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.06/vocabulary/project/src/main/java/org/apache/commons/lang3/exception/ExceptionUtils.java 472
+Faulty:
+return;
+Seed:
+if (throwable == null) {
+  return;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.06/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+Evaluations: 321
+EstimatedTime: 332772

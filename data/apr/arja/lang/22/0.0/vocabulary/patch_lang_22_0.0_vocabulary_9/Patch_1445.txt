@@ -1,0 +1,38 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+if (u > 0) {
+  u=-u;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.0/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 479
+Faulty:
+if (gcd == 1) {
+  return this;
+}
+Seed:
+if (numerator == 0) {
+  toProperString="0";
+}
+ else if (numerator == denominator) {
+  toProperString="1";
+}
+ else if (numerator == -1 * denominator) {
+  toProperString="-1";
+}
+ else if ((numerator > 0 ? -numerator : numerator) < -denominator) {
+  int properNumerator=getProperNumerator();
+  if (properNumerator == 0) {
+    toProperString=Integer.toString(getProperWhole());
+  }
+ else {
+    toProperString=new StringBuilder(32).append(getProperWhole()).append(' ').append(properNumerator).append('/').append(getDenominator()).toString();
+  }
+}
+ else {
+  toProperString=new StringBuilder(32).append(getNumerator()).append('/').append(getDenominator()).toString();
+}
+**************************************************
+Evaluations: 1459
+EstimatedTime: 2073267

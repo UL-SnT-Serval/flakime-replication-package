@@ -1,0 +1,87 @@
+1 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 182
+Faulty:
+return transformers[i].transformed(rawG);
+Seed:
+for (int i=0; i < updates.length - 1; ++i) {
+  if (t <= updates[i]) {
+    return transformers[i].transformed(rawG);
+  }
+}
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/ode/events/EventFilter.java 151
+Faulty:
+if (t < extremeT) {
+  final Transformer previous=transformers[0];
+  final Transformer next=filter.selectTransformer(previous,rawG,forward);
+  if (next != previous) {
+    System.arraycopy(updates,0,updates,1,updates.length - 1);
+    System.arraycopy(transformers,0,transformers,1,transformers.length - 1);
+    updates[0]=extremeT;
+    transformers[0]=next;
+  }
+  extremeT=t;
+  return next.transformed(rawG);
+}
+ else {
+  for (int i=0; i < updates.length - 1; ++i) {
+    if (t <= updates[i]) {
+      return transformers[i].transformed(rawG);
+    }
+  }
+  return transformers[updates.length - 1].transformed(rawG);
+}
+Seed:
+if (forward) {
+  final int last=transformers.length - 1;
+  if (extremeT < t) {
+    final Transformer previous=transformers[last];
+    final Transformer next=filter.selectTransformer(previous,rawG,forward);
+    if (next != previous) {
+      System.arraycopy(updates,1,updates,0,last);
+      System.arraycopy(transformers,1,transformers,0,last);
+      updates[last]=extremeT;
+      transformers[last]=next;
+    }
+    extremeT=t;
+    return next.transformed(rawG);
+  }
+ else {
+    for (int i=last; i > 0; --i) {
+      if (updates[i] <= t) {
+        return transformers[i].transformed(rawG);
+      }
+    }
+    return transformers[0].transformed(rawG);
+  }
+}
+ else {
+  if (t < extremeT) {
+    final Transformer previous=transformers[0];
+    final Transformer next=filter.selectTransformer(previous,rawG,forward);
+    if (next != previous) {
+      System.arraycopy(updates,0,updates,1,updates.length - 1);
+      System.arraycopy(transformers,0,transformers,1,transformers.length - 1);
+      updates[0]=extremeT;
+      transformers[0]=next;
+    }
+    extremeT=t;
+    return next.transformed(rawG);
+  }
+ else {
+    for (int i=0; i < updates.length - 1; ++i) {
+      if (t <= updates[i]) {
+        return transformers[i].transformed(rawG);
+      }
+    }
+    return transformers[updates.length - 1].transformed(rawG);
+  }
+}
+**************************************************
+3 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 1119
+EstimatedTime: 685780

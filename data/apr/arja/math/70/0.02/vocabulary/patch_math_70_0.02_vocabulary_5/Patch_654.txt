@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/70/0.02/vocabulary/project/src/main/java/org/apache/commons/math/geometry/Vector3D.java 347
+Faulty:
+Vector3D v3=crossProduct(v1,v2);
+Seed:
+if ((dot < -threshold) || (dot > threshold)) {
+  Vector3D v3=crossProduct(v1,v2);
+  if (dot >= 0) {
+    return Math.asin(v3.getNorm() / normProduct);
+  }
+  return Math.PI - Math.asin(v3.getNorm() / normProduct);
+}
+**************************************************
+Evaluations: 673
+EstimatedTime: 871930

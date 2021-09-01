@@ -1,0 +1,27 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/39/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 259
+Faulty:
+yTmp[j]=y[j] + stepSize * sum;
+Seed:
+hNew=-hNew;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/39/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/ode/nonstiff/EmbeddedRungeKuttaIntegrator.java 254
+Faulty:
+for (int j=0; j < y0.length; ++j) {
+  double sum=a[k - 1][0] * yDotK[0][j];
+  for (int l=1; l < k; ++l) {
+    sum+=a[k - 1][l] * yDotK[l][j];
+  }
+  yTmp[j]=y[j] + stepSize * sum;
+}
+Seed:
+if (!isLastStep) {
+  interpolator.storeTime(stepStart);
+  final double nextT=stepStart + stepSize;
+  final boolean nextIsLast=forward ? (nextT >= t) : (nextT <= t);
+  if (nextIsLast) {
+    stepSize=t - stepStart;
+  }
+}
+**************************************************
+Evaluations: 1209
+EstimatedTime: 2449280

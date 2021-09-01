@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3349
+Faulty:
+double result=xb * factb + xb * facta + xa * factb + xa * facta;
+Seed:
+if (x != x || x == 0.0) {
+  return x;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/distribution/GammaDistributionImpl.java 157
+Faulty:
+if (x < 0) {
+  return 0;
+}
+Seed:
+if (x < 0) {
+  return 0;
+}
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+f1=fx;
+**************************************************
+Evaluations: 976
+EstimatedTime: 1038186

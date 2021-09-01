@@ -1,0 +1,31 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+u=-u;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.03/vocabulary/project/src/main/java/org/apache/commons/lang3/time/DateUtils.java 358
+Faulty:
+throw new ParseException("Unable to parse the date: " + str,-1);
+Seed:
+for (int i=0; i < parsePatterns.length; i++) {
+  String pattern=parsePatterns[i];
+  if (parsePatterns[i].endsWith("ZZ")) {
+    pattern=pattern.substring(0,pattern.length() - 1);
+  }
+  parser.applyPattern(pattern);
+  pos.setIndex(0);
+  String str2=str;
+  if (parsePatterns[i].endsWith("ZZ")) {
+    str2=str.replaceAll("([-+][0-9][0-9]):([0-9][0-9])$","$1$2");
+  }
+  Date date=parser.parse(str2,pos);
+  if (date != null && pos.getIndex() == str2.length()) {
+    return date;
+  }
+}
+**************************************************
+Evaluations: 438
+EstimatedTime: 613415

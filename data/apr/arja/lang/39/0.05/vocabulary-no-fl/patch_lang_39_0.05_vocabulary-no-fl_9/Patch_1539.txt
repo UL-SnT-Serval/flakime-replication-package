@@ -1,0 +1,19 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3654
+Faulty:
+noMoreMatchesForReplIndex[i]=true;
+Seed:
+continue;
+**************************************************
+2 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+increase=(increase < 0 ? 0 : increase);
+**************************************************
+Evaluations: 1471
+EstimatedTime: 620729

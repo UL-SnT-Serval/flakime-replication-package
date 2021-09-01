@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/time/StopWatch.java 232
+Faulty:
+this.runningState=STATE_SUSPENDED;
+Seed:
+if (this.runningState == STATE_RUNNING) {
+  this.stopTime=System.nanoTime();
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.01/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 585
+Faulty:
+return 1;
+Seed:
+return -1;
+**************************************************
+Evaluations: 1061
+EstimatedTime: 3088445

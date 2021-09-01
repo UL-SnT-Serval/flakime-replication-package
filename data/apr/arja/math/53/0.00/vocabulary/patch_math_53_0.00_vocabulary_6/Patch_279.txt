@@ -1,0 +1,16 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.00/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/53/0.00/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 153
+Faulty:
+return createComplex(real + rhs.getReal(),imaginary + rhs.getImaginary());
+Seed:
+MathUtils.checkNotNull(rhs);
+**************************************************
+Evaluations: 332
+EstimatedTime: 219762

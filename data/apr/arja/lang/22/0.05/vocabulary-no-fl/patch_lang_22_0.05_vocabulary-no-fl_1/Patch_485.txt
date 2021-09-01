@@ -1,0 +1,18 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+v=-v;
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 216
+Faulty:
+throw new ArithmeticException("The denominator must not be zero");
+Seed:
+if (denominator < 0) {
+  throw new ArithmeticException("The denominator must not be negative");
+}
+**************************************************
+Evaluations: 477
+EstimatedTime: 695176

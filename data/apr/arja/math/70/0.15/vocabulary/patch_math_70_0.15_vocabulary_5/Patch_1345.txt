@@ -1,0 +1,20 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.15/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.15/vocabulary/project/src/main/java/org/apache/commons/math/util/MathUtils.java 453
+Faulty:
+long yInt=Double.doubleToLongBits(y);
+Seed:
+assert maxUlps > 0 && maxUlps < NAN_GAP;
+**************************************************
+3 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/70/0.15/vocabulary/project/src/main/java/org/apache/commons/math/stat/inference/TestUtils.java 340
+Faulty:
+return chiSquareTest.chiSquareTest(counts,alpha);
+Seed:
+return chiSquareTest.chiSquareTest(counts,alpha);
+**************************************************
+Evaluations: 1631
+EstimatedTime: 427312

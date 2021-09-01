@@ -1,0 +1,18 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/complex/Complex.java 711
+Faulty:
+if (isNaN()) {
+  return Complex.NaN;
+}
+Seed:
+if (isNaN()) {
+  return Complex.NaN;
+}
+**************************************************
+2 Replace /home/renaud/workspaces/flakime-replication-package/results/math/70/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BisectionSolver.java 72
+Faulty:
+return solve(min,max);
+Seed:
+return solve(f,min,max);
+**************************************************
+Evaluations: 510
+EstimatedTime: 231329

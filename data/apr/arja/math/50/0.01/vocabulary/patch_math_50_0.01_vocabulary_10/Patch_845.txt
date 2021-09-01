@@ -1,0 +1,76 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+switch (allowed) {
+case ANY_SIDE:
+  return x1;
+case LEFT_SIDE:
+if (inverted) {
+  return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 204
+Faulty:
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+    return x1;
+case LEFT_SIDE:
+  if (inverted) {
+    return x1;
+  }
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+Seed:
+if (f1 == 0.0) {
+  return x1;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/distribution/FDistributionImpl.java 104
+Faulty:
+final double logn=FastMath.log(numeratorDegreesOfFreedom);
+Seed:
+if (denominatorDegreesOfFreedom <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.DEGREES_OF_FREEDOM,denominatorDegreesOfFreedom);
+}
+**************************************************
+Evaluations: 874
+EstimatedTime: 598951

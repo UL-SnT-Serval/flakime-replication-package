@@ -1,0 +1,36 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+start=0;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 4867
+Faulty:
+return false;
+Seed:
+if ("on".equalsIgnoreCase(str)) {
+  return Boolean.TRUE;
+}
+ else if ("off".equalsIgnoreCase(str)) {
+  return Boolean.FALSE;
+}
+ else if ("yes".equalsIgnoreCase(str)) {
+  return Boolean.TRUE;
+}
+ else if ("no".equalsIgnoreCase(str)) {
+  return Boolean.FALSE;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3676
+Faulty:
+int greater=replacementList[i].length() - searchList[i].length();
+Seed:
+textIndex=-1;
+**************************************************
+Evaluations: 1745
+EstimatedTime: 3807225

@@ -1,0 +1,43 @@
+1 Delete /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3682
+Faulty:
+increase=Math.min(increase,text.length() / 5);
+Seed:
+replaceIndex=-1;
+**************************************************
+2 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3701
+Faulty:
+if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+  continue;
+}
+Seed:
+tempIndex=text.indexOf(searchList[i]);
+**************************************************
+3 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3691
+Faulty:
+buf.append(replacementList[replaceIndex]);
+Seed:
+start=0;
+**************************************************
+4 Replace /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+if (timeToLive < 0) {
+  throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+}
+**************************************************
+5 InsertBefore /mnt/d/workspaces/flakime/data/apr/arja/lang/39/0.05/vocabulary-no-fl/project/src/java/org/apache/commons/lang3/StringUtils.java 3635
+Faulty:
+boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+Seed:
+if (searchLength != replacementLength) {
+  throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+}
+**************************************************
+Evaluations: 370
+EstimatedTime: 159200

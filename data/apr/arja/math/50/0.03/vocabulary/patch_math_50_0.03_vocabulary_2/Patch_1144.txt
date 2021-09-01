@@ -1,0 +1,39 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 187
+Faulty:
+if (x == x1) {
+  x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+  f0=computeObjectiveValue(x0);
+}
+Seed:
+if (inverted) {
+  return x1;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+if (f0 == 0.0) {
+  return x0;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.03/vocabulary/project/src/main/java/org/apache/commons/math/util/FastMath.java 3700
+Faulty:
+return (f < 0f) ? -Float.MAX_VALUE : Float.MAX_VALUE;
+Seed:
+for (int i=0; i < 14; i++) {
+  double xs[]=new double[2];
+  double ys[]=new double[2];
+  double as[]=new double[2];
+  as[0]=COSINE_TABLE_A[i];
+  as[1]=COSINE_TABLE_B[i];
+  splitReciprocal(as,ys);
+  xs[0]=SINE_TABLE_A[i];
+  xs[1]=SINE_TABLE_B[i];
+  splitMult(xs,ys,as);
+  TANGENT_TABLE_A[i]=as[0];
+  TANGENT_TABLE_B[i]=as[1];
+}
+**************************************************
+Evaluations: 1185
+EstimatedTime: 588301

@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 4866
+Faulty:
+if (str == null) {
+  return false;
+}
+Seed:
+if ("yes".equalsIgnoreCase(str)) {
+  return Boolean.TRUE;
+}
+ else if ("no".equalsIgnoreCase(str)) {
+  return Boolean.FALSE;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/39/0.03/vocabulary/project/src/java/org/apache/commons/lang3/StringUtils.java 3675
+Faulty:
+for (int i=0; i < searchList.length; i++) {
+  int greater=replacementList[i].length() - searchList[i].length();
+  if (greater > 0) {
+    increase+=3 * greater;
+  }
+}
+Seed:
+increase=(increase < 0 ? 0 : increase);
+**************************************************
+Evaluations: 570
+EstimatedTime: 1216197

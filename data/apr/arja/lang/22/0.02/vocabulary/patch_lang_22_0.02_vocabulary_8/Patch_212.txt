@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/ClassUtils.java 288
+Faulty:
+if (cls == null) {
+  return null;
+}
+Seed:
+addAbbreviation("float","F");
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/ClassUtils.java 292
+Faulty:
+Class<?> superclass=cls.getSuperclass();
+Seed:
+addAbbreviation("long","J");
+**************************************************
+3 Delete /home/renaud/workspaces/flakime-replication-package/results/lang/22/0.02/vocabulary/project/src/main/java/org/apache/commons/lang3/math/Fraction.java 584
+Faulty:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+Seed:
+if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {
+  return 1;
+}
+**************************************************
+Evaluations: 223
+EstimatedTime: 398862

@@ -1,0 +1,19 @@
+1 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/dfp/DfpDec.java 264
+Faulty:
+if (rh != 0) {
+  shiftRight();
+  mant[mant.length - 1]=rh;
+}
+Seed:
+if (msb == 0) {
+  return 0;
+}
+**************************************************
+2 Delete /home/renaud/workspaces/flakime-replication-package/results/math/50/0.01/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
+Faulty:
+x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
+Seed:
+this.method=method;
+**************************************************
+Evaluations: 528
+EstimatedTime: 268080

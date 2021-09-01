@@ -1,0 +1,29 @@
+1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/UniformRealDistribution.java 184
+Faulty:
+return false;
+Seed:
+return true;
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 129
+Faulty:
+final double nhalf=numeratorDegreesOfFreedom / 2;
+Seed:
+numericalVariance=calculateNumericalVariance();
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 133
+Faulty:
+final double logm=FastMath.log(denominatorDegreesOfFreedom);
+Seed:
+if (!numericalVarianceIsCalculated) {
+  numericalVariance=calculateNumericalVariance();
+  numericalVarianceIsCalculated=true;
+}
+**************************************************
+4 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/22/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math3/distribution/FDistribution.java 275
+Faulty:
+return true;
+Seed:
+return false;
+**************************************************
+Evaluations: 1663
+EstimatedTime: 1101546

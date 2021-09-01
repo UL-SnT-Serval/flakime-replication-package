@@ -1,0 +1,16 @@
+1 Delete /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 300
+Faulty:
+if (isNaN) {
+  return NaN;
+}
+Seed:
+isNaN=Double.isNaN(real) || Double.isNaN(imaginary);
+**************************************************
+2 Replace /home/afranci/flakime-results/results/math/5/0.01/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
+Faulty:
+return NaN;
+Seed:
+return INF;
+**************************************************
+Evaluations: 521
+EstimatedTime: 106002

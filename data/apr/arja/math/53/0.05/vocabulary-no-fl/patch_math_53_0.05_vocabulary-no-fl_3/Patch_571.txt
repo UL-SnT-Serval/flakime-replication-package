@@ -1,0 +1,26 @@
+1 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/random/RandomDataImpl.java 979
+Faulty:
+return distribution.inverseCumulativeProbability(nextUniform(0,1));
+Seed:
+if (secRand == null) {
+  secRand=new SecureRandom();
+}
+**************************************************
+2 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/complex/Complex.java 152
+Faulty:
+MathUtils.checkNotNull(rhs);
+Seed:
+if (isNaN || rhs.isNaN) {
+  return NaN;
+}
+**************************************************
+3 InsertBefore /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/53/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/distribution/AbstractContinuousDistribution.java 177
+Faulty:
+return out;
+Seed:
+if (sampleSize <= 0) {
+  throw new NotStrictlyPositiveException(LocalizedFormats.NUMBER_OF_SAMPLES,sampleSize);
+}
+**************************************************
+Evaluations: 643
+EstimatedTime: 643550
