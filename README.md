@@ -4,11 +4,6 @@ This repository contains the necessary scripts to run and extract the results pr
 
 ## Structure
 
-This repository is composed of different scripts and archives whose role are described bellow:
-- `run-arja*.sh` : These scripts allow to run the probabilistic program repair using [ARJA](https://github.com/yyxhdy/arja). The script annotated by `-all` allows to run the experiment on all the targeted projects with 1 command (recomended).
-- `run-pit*.sh` : These scripts allow to run the mutation testing experiment using a [forked version of pitest](https://github.com/UL-SnT-Serval/pitest.git). The script annotated by `-all` allows to run the experiment on all the targeted projects with 1 command (recomended).
-- `run-prapr*.sh` : These scripts allow to run the deterministic program repair using [PR-APR](https://github.com/prapr/prapr). The script annotated by `-all` allows to run the experiment on all the targeted projects with 1 command (recomended).
-- `run-sbfl*.sh` : TODO
 - `*.py` : These scripts allow to plot and analyse the different outputs from the experiments
 - `defects4j\` : This folder contains the different project (i.e., `time,math,mock,chart,lang`) in which the a subfolder identified by [defects4j](https://github.com/rjust/defects4j) bug id contains the targeted version.
 - `current\` : This folder contains the last stable version of the four targeted projects (`common-lang,common-math,joda-time,jfreechart`).
@@ -31,14 +26,6 @@ The following table shows the tests subjects for each of the experiments
 - Java version : `8 Update 2xx` with `JAVA_HOME` environment variable set (e.g., `$: export JAVA_HOME=/usr/jdk/jdk1.8.0_271`)
 - Apache Maven version : `3.6.3`
 - **Extract the project archives** contained in `defects4j\` and `current\`. (*approx*. 1,5 GB total)
-
-*Analysis*
-- Python version `3.8.8`
-- `Pandas` library
-- `Numpy`  library
-- `yaml` library
-- `matplotlib` library
-- `seaborn` library
 
 ### Mutation testing (Pitest)
 This experiment helps to investigate the effect of flakiness on the mutation score by injecting flaky failure with different nominal flake rate.
