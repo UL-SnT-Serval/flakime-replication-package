@@ -1,8 +1,0 @@
-1 Replace /home/renaud/workspaces/flakime-replication-package/data/apr/arja/math/50/0.05/vocabulary-no-fl/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 189
-Faulty:
-f0=computeObjectiveValue(x0);
-Seed:
-return doSolve();
-**************************************************
-Evaluations: 5
-EstimatedTime: 2397
