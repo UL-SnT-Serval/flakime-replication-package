@@ -1,8 +1,0 @@
-1 InsertBefore /home/renaud/workspaces/flakime-replication-package/results/math/50/0.00/vocabulary/project/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java 188
-Faulty:
-x0=0.5 * (x0 + x1 - FastMath.max(rtol * FastMath.abs(x1),atol));
-Seed:
-f0=computeObjectiveValue(x0);
-**************************************************
-Evaluations: 1017
-EstimatedTime: 479930

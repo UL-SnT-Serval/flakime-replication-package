@@ -1,8 +1,0 @@
-1 Replace /home/afranci/flakime-results/results/math/5/0.00/vocabulary/project/src/main/java/org/apache/commons/math3/complex/Complex.java 305
-Faulty:
-return NaN;
-Seed:
-return INF;
-**************************************************
-Evaluations: 166
-EstimatedTime: 43830
