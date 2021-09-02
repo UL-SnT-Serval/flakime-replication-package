@@ -96,11 +96,13 @@ def print_arja_statistics(data):
     print('ARJA statistics: wilcoxon of targeted vs non-targeted')
     print("--------------------------------------------------")
     wicloxon_targeted = []
+    
     for bug_id in data['Bug ID'].unique():
         non_targeted = data.loc[(data['Flake Rate'] == 0.05) & (data['Strategy'] == 'non-targeted') & (data['Bug ID'] == bug_id)]['Valid Patches']
         targeted = data.loc[(data['Flake Rate'] == 0.05) & (data['Strategy'] == 'targeted') & (data['Bug ID'] == bug_id)]['Valid Patches']
         w, p = mannwhitneyu(non_targeted, targeted)
         wicloxon_targeted.append({'Bug ID': bug_id, 'p-value': p, 'significant': p < 0.05}) 
+    
     print(pandas.DataFrame(wicloxon_targeted))
 
     print("--------------------------------------------------")

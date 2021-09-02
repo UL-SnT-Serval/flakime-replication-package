@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-export WORKDIR=$PWD
+export WORKDIR=$PWD/..
 export ARJADIR=$WORKDIR/arja
 
 export MAVEN_OPTS=-Xss10M

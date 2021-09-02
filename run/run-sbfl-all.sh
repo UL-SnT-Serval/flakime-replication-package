@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-export WORKDIR=$PWD
+export WORKDIR=$PWD/..
 export MAVEN_OPTS=-Xss10M
 
 mode=$1
