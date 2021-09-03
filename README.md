@@ -1,3 +1,5 @@
+**This version is anonymous therefore some links might not be working**
+
 # FlakiMe replication package
 
 This repository contains the necessary scripts to run and extract the results presented in:  _On Designing and Using an Experimental Infrastructure for Test Flakiness Impact Assessment_
