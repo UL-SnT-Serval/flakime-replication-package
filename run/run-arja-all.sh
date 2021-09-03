@@ -10,7 +10,7 @@ mode=$1
 flake_strategy="${2:-vocabulary}"
 
 if [ ! -d "$ARJADIR" ]; then
-    git clone https://github.com/UL-SnT-Serval/arja.git arja
+    git clone https://github.com/anonymized/arja.git arja
     pushd $ARJADIR
     mkdir bin
     javac -cp "lib/*:" -d bin $(find src -name '*.java')
